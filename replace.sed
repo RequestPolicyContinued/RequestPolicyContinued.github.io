@@ -1,0 +1,14 @@
+s/](Working-with-the-Source-Code)/](Working-with-the-Source-Code.html)/g
+s/](About)/](About.html)/g
+s/](Dev)/](Dev.html)/g
+s/](Setting-up-a-development-environment)/](Setting-up-a-development-environment.html)/g
+s/](Security)/](Security.html)/g
+s/](Quickstart)/](Quickstart.html)/g
+s/](Contributing)/](Contributing.html)/g
+s/](Home)/](Home.html)/g
+s/](FAQ)/](FAQ.html)/g
+s/](Rules)/](Rules.html)/g
+s/](Risk-of-trusting-subdomains)/](Risk-of-trusting-subdomains.html)/g
+s/](Privacy)/](Privacy.html)/g
+s/](What-is-prefetching)/](What-is-prefetching.html)/g
+s|https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/_media/|_media/|g

@@ -1,0 +1,36 @@
+body {
+  margin: 0 auto 0 auto;
+  width: 80%;
+  font-family: Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+  max-width: 670px;
+  min-width: 360px;
+  font-size: 16px;
+  color: #333;
+  background-color: #FDFAFA;
+}
+
+h1 {
+  font-size: 2.3em;
+}
+
+table {
+  margin: 0 auto;
+}
+
+hr {
+  background-color: #E7E7E7;
+  height: 4px;
+  border: 0px none;
+}
+
+a {
+  color: #4078C0;
+  /*font-weight: bold;*/
+  text-decoration: none;
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.04);
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 13.6px;
+}
