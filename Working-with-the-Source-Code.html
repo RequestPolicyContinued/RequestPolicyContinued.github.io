@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="./_media/github-markdown.css">
+</head>
+<body>
+<p>After setting up a <a href="Setting-up-a-development-environment.html">development environment</a> you can start tinkering with the code.</p>
+<h2 id="using-the-browser-toolbox-debugging-extensions">using the Browser Toolbox (debugging extensions)</h2>
+<p>If you have no experience in developing extensions for mozilla applications, you might have a look at the <a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox">Browser Toolbox</a> and other <a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a>.</p>
+<h2 id="changing-the-version-string">changing the version string</h2>
+<p>To change the RequestPolicy version number, edit the file <code>src/install.rdf</code> and, for example, change:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;em:version&gt;</span>0.5.23<span class="kw">&lt;/em:version&gt;</span></code></pre>
+<p>to:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;em:version&gt;</span>0.5.23-yourname1<span class="kw">&lt;/em:version&gt;</span></code></pre>
+<p>Now restart Firefox (the instance running your development profile you've set up)<br />and check <code>about:addons</code> to verify that the new version number is shown there.</p>
+<h2 id="changing-minversion-and-maxversion">changing minVersion and maxVersion</h2>
+<p>A problem you could hit is that your version of Firefox is not supported by RequestPolicy (or, at least, is not supported by the particular RequestPolicy code you're starting development with). If necessary, you can force RequestPolicy to work with your version of Firefox by editing the file <code>src/install.rdf</code> and changing the values of minVersion or maxVersion.</p>
+</body>
+</html>

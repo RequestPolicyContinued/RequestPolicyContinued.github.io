@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="./_media/github-markdown.css">
+</head>
+<body>
+<h2 id="getting-the-source-code">Getting the Source Code</h2>
+<p>If you'd like to download the RequestPolicy source code from our version<br />control system, you can do so with:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/RequestPolicyContinued/requestpolicy.git</code></pre>
+<p>The above command will create a directory called <code>requestpolicy</code>. Under that<br />is a <code>src</code> directory where the source code lives.</p>
+<p>By the way, any XPI file (the extension file you install in your browser)<br />contains all of the source code as well. XPI files are just zip<br />archives which you can extract like any other. However, in version control<br />there's a <code>chrome.manifest</code> file for local development that you'll probably<br />want to use even if you're working from an extracted XPI.</p>
+<h2 id="building-the-extension-xpi">Building the Extension XPI</h2>
+<p>We use <a href="https://www.gnu.org/software/make/">GNU Make</a>. To create the XPI file, simply run</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span></code></pre>
+<p>from the repo's root directory. After that the xpi will be located at <code>dist/requestpolicy.xpi</code>.</p>
+<h2 id="run-firefox-rp-with-mozrunner">Run Firefox &amp; RP with <code>mozrunner</code></h2>
+<p><code>mozrunner</code> is a python package that helps you run Mozilla binaries (firefox, thunderbird, seamonkey, …) in a predefined environment. Every time you run <code>mozrunner</code>, it will create a new temporary profile – it will be deleted afterwards.</p>
+<h3 id="preparation-steps">preparation steps</h3>
+<h4 id="install-mozrunner">install <code>mozrunner</code></h4>
+<p>You can install <a href="http://pypi.python.org/pypi/mozrunner"><code>mozrunner</code></a> via <code>python-pip</code>. On a debian system, run:</p>
+<pre><code>sudo apt-get install python-pip
+sudo pip install mozmill</code></pre>
+<h4 id="firefox-nightly">Firefox Nightly</h4>
+<p>Download the file you need from <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/">http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/</a></p>
+<p>Install/extract the files into <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code>. The binary file named <code>firefox</code> should be directly in that directory.</p>
+<p><strong>Hint:</strong> If you want, you could also install Fx Nightly elsewhere and create a symlink from <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code> to that directory.</p>
+<h3 id="run-mozrunner">run <code>mozrunner</code></h3>
+<p>First you have to prepare your environment, see below. When you're done, run</p>
+<pre><code>make run</code></pre>
+<p>Firefox Nightly will start up with a completely fresh profile and with RP installed. For more information, take a look at the <code>Makefile</code>'s <code>run</code> target.</p>
+<h2 id="developing-without-rebuilding-the-xpi">Developing Without Rebuilding the XPI</h2>
+<p>It's annoying to have to rebuild and reinstall the extension constantly during<br />development. To avoid that, you can create a &quot;proxy&quot; extension by creating a<br />file in your Firefox profile's extensions directory which tells Firefox that<br />it should look for the unpackaged extension files in a directory of your<br />choice.</p>
+<h3 id="quick-instructions">Quick instructions</h3>
+<ol>
+<li>Create a <a href="http://kb.mozillazine.org/Profile_Manager#Creating_a_new_profile">new firefox profile</a>, e.g. called <code>rp-dev</code>.<br /></li>
+<li>Start firefox with the new profile (e.g. <code>firefox -no-remote -P rp-dev</code>) and close it again.<br /></li>
+<li>Figure out the <a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>, go there and run this command: <code>echo &quot;/path/to/requestpolicy/src&quot; &gt; requestpolicy@requestpolicy.com</code> (or do it by hand).</li>
+</ol>
+<h3 id="detailed-instructions">Detailed instructions</h3>
+<p>To install a proxy extension, first create a new Firefox profile through the<br />Firefox profile manager. To open the profile manager:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -profilemanager</code></pre>
+<p>Start Firefox using that profile, either selecting it in the profile manager<br />or using the command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME</code></pre>
+<p>Now close this Firefox instance.</p>
+<p>After you've created the new profile, figure out the<br /><a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>.<br />On Linux, it will often be <code>~/.mozilla/firefox/*/</code>.<br />I'll call this <code>PROFILE_DIRECTORY</code> from here on out.</p>
+<p>Next, use the following commands to create the proxy extension file for<br />RequestPolicy in your new profile.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Change directory to your new profile&#39;s directory.</span>
+<span class="kw">cd</span> PROFILE_DIRECTORY
+
+<span class="co"># Create the &#39;extensions&#39; directory and change to that directory.</span>
+<span class="kw">mkdir</span> -p extensions
+<span class="kw">cd</span> extensions
+
+<span class="co"># Create a file called &#39;requestpolicy@requestpolicy.com&#39; with a single</span>
+<span class="co"># line in the file which is the path to the &#39;src&#39; directory. </span>
+<span class="kw">echo</span> <span class="st">&quot;/path/to/requestpolicy/src&quot;</span> <span class="kw">&gt;</span> requestpolicy@requestpolicy.com</code></pre>
+<p>Now start Firefox again using that profile. Firefox should now consider the<br />extension installed. To verify this, go to Tools &gt; Addons &gt; Extensions. You<br />should see RequestPolicy listed among the extensions.</p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If RequestPolicy is not installed at this point, you may need to repeat the<br />above steps to create the proxy extension file before trying again. This is<br />because if Firefox sees a problem with your proxy extension file (e.g. it's<br />named incorrectly or the path to the <code>src</code> directory in the file is<br />incorrect), Firefox may delete the file.</p>
+<p>Note that you shouldn't try to install the extension xpi in a profile where<br />you've already created the proxy extension. To use an xpi that you've built,<br />use a new profile.</p>
+<h2 id="enable-logging">enable logging</h2>
+<p>Logging is independant from the previous steps and can be done for any firefox profile. RequestPolicy's logging gives a lot of information about what is going on, so at least for delevoping it's recommended enable it.</p>
+<p>By the way, besides RequestPolicy's own logging there's the <a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Console">Browser Console</a>. Sometimes its output is very helpful for debugging. There's an issue about moving RequestPolicy's logging to the Browser Console, see <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/563">#563</a>.</p>
+<h3 id="summary">summary</h3>
+<p>On <code>about:config</code>, set <code>extensions.requestpolicy.log</code> to <code>true</code>. Logging is done to <code>stderr</code>.</p>
+<h3 id="more-in-detail">more in detail</h3>
+<p>To enable logging open the URL <code>about:config</code> in firefox and search for the keys containing <code>requestpolicy</code>. Locate the one called <code>extensions.requestpolicy.log</code>. Double-click this row to change the value to <code>true</code>. Logging should now be enabled immediately, but to see the output, you need to start firefox from the command line. The logging will be done to <code>stderr</code>, not to Firefox's error console.</p>
+<p>If you want to capture the logged information to a file, you can redirect <code>stderr</code> to a file when you start Firefox. For example, the following command will start Firefox in the background and will redirect both <code>stdout</code> and <code>stderr</code> to a file named <code>rp.log</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME <span class="kw">&gt;</span>rp.log <span class="kw">2&gt;&amp;1</span> <span class="kw">&amp;</span></code></pre>
+<h2 id="unit-tests">Unit tests</h2>
+<p>Setting up an environment for unit testing is an optional, which is probably not needed if you do just a few changes to the code.</p>
+<h3 id="what-is-unit-testing">What is unit testing?</h3>
+<p>Unit testing (<a href="https://en.wikipedia.org/wiki/Unit_test">wikipedia</a>) aims at ensuring that functionality that has been implemented is really working, also across different versions and also in case bigger changes to the source code are done.</p>
+<h2 id="unit-tests-for-requestpolicy">Unit tests for RequestPolicy</h2>
+<p>There are two types of unit tests: MozMill tests and xpcshell tests. You can find setup instructions below. MozMill is used to test UI functionality, whereas the xpcshell is used for tests which only need access to XPCOM.</p>
+<p>So far there are only few unit tests, so contributions are very welcome. To ensure quality of RP, every new feature should always get a unit test.</p>
+<p>If you have any suggestion, please post it issue <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/51">#51</a> or in a new one. If you have any questions, don't hesitate to ask! :)</p>
+<h3 id="mozmill">MozMill</h3>
+<p>MozMill tests are currently documented and developed in <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/487">issue #487</a>.</p>
+<h4 id="install-and-configure">Install and configure</h4>
+<p>If you want to run the MozMill tests, first install MozMill and get the <code>mozmill-tests</code> repository. Instructions you can find <a href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Mozmill_tests#Installing_Mozmill">here</a>. Put the <code>mozmill-tests</code> directory into <code>${rp_root_dir}/.mozilla/</code>.</p>
+<p>In the <code>mozmill-tests</code> folder, create a symbolic link <code>firefox/tests/addons/requestpolicy@requestpolicy.com/</code> which links to the <code>test/mozmill</code> directory of the RP source code. After that, you have to add a new line to your <code>/etc/hosts</code> file:</p>
+<pre><code>127.0.0.1       maindomain.test www.maindomain.test sub-1.maindomain.test sub-2.maindomain.test otherdomain.test www.otherdomain.test sub-1.otherdomain.test sub-2.otherdomain.test thirddomain.test www.thirddomain.test sub-1.thirddomain.test sub-2.thirddomain.test</code></pre>
+<p>Not all of those domains are used at the moment, but they will, so add them all. By the way, <code>.test</code> is a <a href="https://en.wikipedia.org/wiki/.test">reserved TLD</a>.</p>
+<p>To be able to access the test html files, you need a web server on port 80. One very simple method is to use python – execute <code>sudo python -m SimpleHTTPServer 80</code> in RP's <code>test/content/</code> directory, but note that some tests require a web server with PHP support such as the Apache HTTP Server.</p>
+<h4 id="run">Run</h4>
+<p>To run all mozmill tests you can run</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> mozmill</code></pre>
+<p>Note that while the tests are running you shouldn't use keyboard/mouse at all, otherwise tests might fail erroneously.</p>
+<p>Alternatively you could type the mozmill command manually, which allows you to specify a different <code>manifest.ini</code>. The above command is equivalent to:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mozmill</span> --addon-manifests=<span class="ot">${path_to_RP_source}</span>/tests/mozmill/addon-manifest.ini -b <span class="ot">${path_to_firefox_bin}</span> -m <span class="ot">${path_to_mozmill-</span>tests_folder<span class="ot">}</span>/firefox/tests/addons/requestpolicy@requestpolicy.com/manifest.ini</code></pre>
+<h3 id="xpcshell">xpcshell</h3>
+<h4 id="getting-and-building-firefox">Getting and building firefox</h4>
+<p>To be able to run the xpcshell you need to build firefox. Be prepared for a long compilation time – up to one hour or even more. You can find build instructions <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions">here</a>. Note that a <code>.mozconfig</code> file is not necessary. (If you already have your own firefox build, you don't need to rebuild of course.)</p>
+<p>The commands I ran after fulfilling the prerequisites were:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># create a new directory where you want it</span>
+<span class="kw">mkdir</span> moz <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> moz
+
+<span class="co"># get the source (also takes quite long)</span>
+<span class="kw">hg</span> clone https://hg.mozilla.org/mozilla-central/
+
+<span class="kw">cd</span> mozilla-central/
+<span class="kw">./mach</span> build</code></pre>
+<h4 id="creating-a-symlink">Creating a symlink</h4>
+<p>The bash scripts that are prepared for RP expect the <code>mozilla-central/</code> folder to be in the <code>/moz/</code> root directory. The easiest way is to create a symbolic link:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># replace ${MOZ_DIRECTORY} by the folder containing &quot;mozilla-central&quot;</span>
+<span class="kw">sudo</span> ln -is <span class="ot">${MOZ_DIRECTORY}</span> /moz</code></pre>
+<h4 id="run-1">Run</h4>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># run all of RP&#39;s xpcshell unit tests</span>
+<span class="kw">tests/run-xpcshell-tests.sh</span>
+
+<span class="co"># run only one test by add the filename (without path) as the first argument</span>
+<span class="kw">tests/run-xpcshell-tests.sh</span> test_xyz.js</code></pre>
+</body>
+</html>

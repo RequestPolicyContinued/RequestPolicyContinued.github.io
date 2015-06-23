@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./_media/github-markdown.css">
+</head>
+<body>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<!-- MarkdownTOC -->
+
+
+<ul>
+<li><a href="#limitations---what-requestpolicy-continued-cannot-help-with">Limitations - What RequestPolicy Continued cannot help with</a><br /></li>
+<li><a href="#which-kinds-of-requests-are-blocked">Which kinds of requests are blocked?</a><br /></li>
+<li><a href="#how-are-sites-classified-as-third-party-sites">How are sites classified as &quot;third-party sites&quot;?</a><br /></li>
+<li><a href="#what-changes-to-my-browser-are-left-behind-after-uninstalling-requestpolicy">What changes to my browser are left behind after uninstalling RequestPolicy?</a><br /></li>
+<li><a href="#can-websites-detect-that-you-are-using-requestpolicy">Can websites detect that you are using RequestPolicy?</a><br /></li>
+<li><a href="#other-browser-addons">Other browser addons</a><br /></li>
+<li><a href="#the-flag-icon-is-red-what-is-wrong">The flag icon is red! What is wrong?</a><br /></li>
+<li><a href="#how-to-deal-with-ajaxgoogleapiscom">How to deal with ajax.googleapis.com?</a><br /></li>
+<li><a href="#how-to-find-relevant-information-about-a-bug">How to find relevant information about a bug</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+
+
+
+<hr />
+<h3 id="limitations---what-requestpolicy-continued-cannot-help-with">Limitations - What RequestPolicy Continued cannot help with</h3>
+<h4 id="browser-plugins">Browser plugins</h4>
+<p>It's important to understand that RequestPolicy can only stop requests that the browser knows about. It is possible for browser plugins such as Flash, Java, and Silverlight to bypass the web browser in making requests. Even though some requests made by these plugins are controlled by RequestPolicy, it's good to be aware that third-party plugins such as these may bypass the browser and, therefore, also bypass RequestPolicy.</p>
+<h4 id="javascript-based-attacks">Javascript-based attacks</h4>
+<p>In addition to disallowing these plugins by default, there are also plenty of security reasons to disallow JavaScript on websites you visit unless you are sure you want to allow it. To help you control when plugins and JavaScript run on website you visit, we suggest using the NoScript Firefox extension. Using NoScript in addition to RequestPolicy will give you a highly secure browser.</p>
+<h4 id="http-referer-headers">HTTP Referer headers</h4>
+<p>When you follow a link from one page or site to another, your browser sends a Referer HTTP header to the server to tell the tagret site where you came from. Some sites abuse this information to violate visitors’ privacy and track them across the Web. In Firefox, you can disable the sending of the Referer header, or alter the information that is sent, using addons such as Smart Referer or RefControl.</p>
+<p><sup>You can also manually alter what information is sent through the HTTP Referer header by going to <code>about:config</code> and tweaking the <code>network.http.referer.XOriginPolicy</code>, <code>network.http.referer.spoofSource</code>, <code>network.http.referer.trimmingPolicy</code> and <code>network.http.sendRefererHeader</code> preferences.</sup></p>
+<hr />
+<h3 id="which-kinds-of-requests-are-blocked">Which kinds of requests are blocked?</h3>
+<p>By default, any request the browser makes from the current site a user is on to a third-party site is blocked. Users can then whitelist specific sites (with various levels of granularity) to allow requests they approve of.<br />Request that are blocked include:</p>
+<ul>
+<li><strong>Content of the current page that is from a different site:</strong> Various tags in an HTML page tell the browser that more content is needed to display the current page. Normally, the browser immediately makes requests to third-party sites to obtain this content. The content can include images, JavaScript files, style sheet files, and many others.<br /></li>
+<li><strong>Redirections</strong> from the current site to a different site: Redirects tell your browser to load an entirely different website address than the one you are on or requested. Redirections can be caused by JavaScript, META refresh tags, and on headers.<br /></li>
+<li>Content a page tells your browser to &quot;prefetch&quot;: Some browsers, such as Firefox, allow any webpage to tell your browser to load other pages in the background. This is intended to allow a website to improve your browsing experience by guessing which pages you are likely to visit next so that those pages will load faster when you visit them. In Firefox 3.1, DNS prefetching was also added. DNS prefetching is where your browser tries to speed up future requests by resolving the IP address of every link on webpages you visit (just in case you decide to click on them). <a href="What-is-prefetching.html">Read more about prefetching...</a></li>
+</ul>
+<p><em>Note that <strong>OCSP queries and CRL updates</strong> are not blocked. This means that RequestPolicy will not interfere with your browser's attempts to determine whether SSL certificates have been revoked.</em></p>
+<hr />
+<h3 id="how-are-sites-classified-as-third-party-sites">How are sites classified as &quot;third-party sites&quot;?</h3>
+<p>A site is considered a third-party site if its registered domain name is different than the registered domain of the page that initiated the request. For example, the domains: <code>example.com, www.example.com, a.b.c.example.com</code> All have the same registered domain name (<code>example.com</code>) and so are considered the same site.</p>
+<p><em>There is some risk posed by this default, but this level of granularity is the one with the optimal tradeoff of usability for privacy and security according to the needs of most users. Read <a href="Risk-of-trusting-subdomains.html">Risk of trusting subdomains</a> and untick <code>Allow requests to the same domain</code> if you want protection against attacks that use subdomains.</em></p>
+<hr />
+<h3 id="what-changes-to-my-browser-are-left-behind-after-uninstalling-requestpolicy">What changes to my browser are left behind after uninstalling RequestPolicy?</h3>
+<p>By default, when you uninstall or disable RequestPolicy, all changes RequestPolicy made to your browser's settings will be undone. Primarily this means that your default prefetching settings are restored to the browser's default settings. That is, DNS and link prefetching will be re-enabled when you uninstall RequestPolicy.</p>
+<p>However, if you have gone to RequestPolicy's preference window and under the Advanced preferences you have disabled the options to Restore default when RequestPolicy is uninstalled, then your browser's default prefetch settings will not be restored when you disable or uninstall RequestPolicy.</p>
+<p><em>Privacy note: RequestPolicy will leave various RequestPolicy-specific settings and configuration files in your browser profile even after it has been uninstalled. For example, your whitelist will still be available to other people who have access to your computer. This is a known bug (see ticket #227). A future version of RequestPolicy will attempt to delete all RequestPolicy whitelist data, etc., when RequestPolicy is uninstalled. In the mean time, if you are looking to remove all RequestPolicy-related files and configurations, you should go to the page <a href="about:config">about:config</a> in your browser and &quot;reset&quot; every preference that starts with &quot;extensions.requestpolicy&quot;. Starting with RequestPolicy version 0.6, you also should delete the &quot;requestpolicy&quot; directory which was created in your browser's profile directory (if you used multiple browser profiles, you will need to locate the one where you had installed RequestPolicy). If you have questions about verifying that you have correctly removed RequestPolicy data, please don't hesitate to contact us.</em></p>
+<hr />
+<h3 id="can-websites-detect-that-you-are-using-requestpolicy">Can websites detect that you are using RequestPolicy?</h3>
+<p>Yes. It may be possible for a website to detect that a user has RequestPolicy installed. The website can look at which cross-site requests are blocked and make an educated guess that RequestPolicy is doing the blocking.</p>
+<p>More generally, a browser fingerprinting risk exists for users of any extension that modifies the behavior of the web browser on a web page or the content of the web page itself. Check Panopticlick from the Electronic Frontier Foundation to see what browser fingerprinting can reveal about you</p>
+<hr />
+<h3 id="other-browser-addons">Other browser addons</h3>
+<h4 id="is-there-a-requestpolicy-for-chrome">Is there a RequestPolicy for Chrome?</h4>
+<p>Not yet. However you can use <a href="https://github.com/gorhill/uMatrix">https://github.com/gorhill/uMatrix</a> which offers similar functionality.</p>
+<h4 id="is-requestpolicy-an-alternative-or-competitor-to-noscript">Is RequestPolicy an alternative or competitor to NoScript?</h4>
+<p>No! :) NoScript is a tool that gives you a default deny policy for JavaScript, Java, Flash and other plugins. NoScript allows you to whitelist scripts and objects from domains you trust.</p>
+<p>RequestPolicy is a tool that gives you a default deny policy for cross-site requests. RequestPolicy allows you to whitelist cross-site requests you trust.</p>
+<p>RequestPolicy will protect you from various attacks that NoScript will not (such as CSRF attacks, though there some special cases that NoScript protects against) and will give you greater privacy while browsing.</p>
+<p>Also, RequestPolicy will give you finer-grained control over JavaScript and plugins when you use it with NoScript. For example, if you whitelist a domain with NoScript to allow it to run JavaScript, then that domain will also be allowed to run JavaScript when you are on any other site that you have whitelisted with NoScript. RequestPolicy makes sure that when it is JavaScript from a third-party site, it will still be restricted unless you have allowed those cross-site requests.</p>
+<p>Conversely, NoScript gives you protection that RequestPolicy does not. RequestPolicy will not keep you safe from malicious JavaScript or vulnerable plugins on the current site you are visiting, So, NoScript is absolutely essential for browser security.</p>
+<p>Having two separate tools that each do their specific jobs well is the best approach. NoScript is an amazing extension and is absolutely essential (like RequestPolicy) to using Firefox securely. It is best to use both RequestPolicy and NoScript.</p>
+<h4 id="other-browser-addons-you-may-be-interested-in">Other browser addons you may be interested in</h4>
+<p>Some addons for Firefox can enhance your privacy and security when browsing the Web. For a list of quality addons, check <a href="https://prism-break.org/en/all/#web-browser-addons">PRISM Break's list of browser addons</a>.</p>
+<hr />
+<h3 id="the-flag-icon-is-red-what-is-wrong">The flag icon is red! What is wrong?</h3>
+<p>Nothing (on your side) is wrong. RequestPolicy is actually doing it's job by blocking requests to other sites you didn't explicitely request. The website you're visiting is actually trying to force you to request data from other sites, which may be wrong for <a href="Privacy.html">privacy</a> and <a href="Security.html">security</a> reasons. You will need to allow automatically or manually these requests if the blocking breaks viewing the site. <a href="Quickstart.html">Learn how to use RequestPolicy now...</a></p>
+<hr />
+<h3 id="how-to-deal-with-ajax.googleapis.com">How to deal with ajax.googleapis.com?</h3>
+<p>Many sites depend on jQuery served by Google</p>
+<ul>
+<li>Clear cookies regularly with addons like Self-Destructing Cookies<br /></li>
+<li>Spoof your referer with SmartReferer to prevent ajax.googleapis.com from knowing what page you visit when the request is done<br /></li>
+<li>Use your hosts file to redirect requests to jquery.js to a local file or a domain you control.<br /></li>
+<li>Ask the site administrator to host their js libs themselves (eg. reddit.com has an option for this)<br /></li>
+<li>Contribute to <a href="https://github.com/RequestPolicyContinued/subscriptions">subscriptions</a> to add a rule for sites that absolutely require calls to ajax.googleapis.com<br /></li>
+<li>Take the time to allow the request if necessary, or live with the broken site. RequestPolicy is about user control on cross-site requests.</li>
+</ul>
+<hr />
+<h3 id="how-to-find-relevant-information-about-a-bug">How to find relevant information about a bug</h3>
+<p>Sometimes a bug is not easily reproducible. You need to make the bug is caused by RequestPolicy Continued itself, not by another addon or incorrect configuration setting. Please do the following:</p>
+<ul>
+<li>Create a <a href="https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles">new, blank profile in Firefox</a>, with no addons installed.<br /></li>
+<li>Install the latest RequestPolicy Continued from <a href="https://github.com/RequestPolicyContinued/requestpolicy/releases">https://github.com/RequestPolicyContinued/requestpolicy/releases</a><br /></li>
+<li>Navigate to your test page and try to reproduce the bug.</li>
+</ul>
+<p>If the problem still occurs with this setup, it is likely a RequestPolicy bug. If the addon works as expected with a blank Firefox profile, then something in your &quot;regular&quot; Firefox profile is causing this bug (another addon or preference). If so, please try the following:</p>
+<ol>
+<li>Start your normal Firefox profile.<br /></li>
+<li>Disable all addons, except RequestPolicy Continued. (you may need to restart Firefox)<br /></li>
+<li>Go to your test page, confirm that RequestPolicy works normally.<br /></li>
+<li>Re-enable another addon (just one), restart Firefox if needed, reload the test page.<br /></li>
+<li>If the bug stll not shows up, the addon you just enabled is not causing it.<br /></li>
+<li>Redo step 4 (enable another addon, restart Firefox if needed, reload the test page.) until you find the addon that is causing the bug to occur, and please report the addon name here.</li>
+</ol>
+<p>If disabling all addons didn't help, you can do the following:</p>
+<ul>
+<li>Check firefox' browser console<br /></li>
+<li><a href="Setting-up-a-development-environment#enable-logging">Enable RPC's logging</a> and start Fx from the terminal</li>
+</ul>
+</body>
+</html>
