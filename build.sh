@@ -8,7 +8,7 @@ for file in $mdfiles; do
 	outfile="$(basename "$file" .md).html"
 	sed -f replace.sed < "$file" | pandoc -f markdown_github \
     -t html5 -s \
-    -c "$(dirname $0)/_media/github-markdown.css" \
+    -c "$(dirname $0)/github-markdown.css" \
     -o "$outfile"
 done
 
