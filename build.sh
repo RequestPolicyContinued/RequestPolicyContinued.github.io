@@ -11,3 +11,5 @@ for file in $mdfiles; do
     -c "$(dirname $0)/_media/github-markdown.css" \
     -o "$outfile"
 done
+
+cp Home.html index.html
