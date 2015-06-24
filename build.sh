@@ -1,15 +1,24 @@
 #!/bin/bash
+# Build script for RequestPolicy Continued documentation
+# https://github.com/RequestPolicyContinued
+# License: CC-BY-SA 3.0
+# Usage: ./build.sh
+
+set -o errexit
+set -o nounset
+
 workdir="$(dirname $0)"
 cd $workdir
 mdfiles=$(find ./ -maxdepth 1 -name "*.md")
-#pagenames=$(echo $mdfiles | sed 's/\.md//g' | sed 's|./||g')
 
 for file in $mdfiles; do
 	outfile="$(basename "$file" .md).html"
-	sed -f replace.sed < "$file" | pandoc -f markdown_github \
-    -t html5 -s \
-    -c "$(dirname $0)/github-markdown.css" \
-    -o "$outfile"
+	sed --file replace.sed < "$file" | \
+    pandoc --from markdown_github \
+    --write html5 \
+    --standalone \
+    --css "$(dirname $0)/github-markdown.css" \
+    --output "$outfile"
 done
 
 cp Home.html index.html
