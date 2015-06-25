@@ -58,7 +58,7 @@ The rest of this tutorial will show you how to manage your policy.
 -------------------------
 
 ## Toolbar Icon
-![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/rp-1.png)
+![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/rp-1.png)
 
 Once RequestPolicy is installed, you will see a new **flag icon** at the top-right of your browser window. This flag **turns red** when RequestPolicy has blocked requests from the current website you are viewing. Clicking on the RequestPolicy icon brings up a menu of options.
 
@@ -68,7 +68,7 @@ Once RequestPolicy is installed, you will see a new **flag icon** at the top-rig
 The **left pane** is divided in 2 sections: Origins and Destinations.  
 The **right pane** contains actions for the item you have selected form the left pane.
 
-<img style='width: 90%' src='https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/menu.png'/>
+<img style='width: 90%' src='https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/menu.png'/>
 
 ### Destinations
 
@@ -85,7 +85,7 @@ These destinations are shown in red. Requests from the current page to these dom
 
 If you **click on one of the blocked destinations**, you are given options to allow this destination. The first time you visit a site, if it doesn’t display or work properly, you will have to **allow** some destinations. Let’s say you are browsing example.com, and it doesn’t display properly:
 
-<img style='width: 90%' src='https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/menu-full.png'/>
+<img style='width: 90%' src='https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/menu-full.png'/>
 
 
 Look in the menu for blocked destinations that have a **large number of blocked requests** (number on the right of the domain name). This might indicate that the page tries to load a lot of content from this domain, but RequestPolicy blocks it. Click on one of these destinations (eg. `example.net`). From there, the possible actions are displayed in the right pane.

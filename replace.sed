@@ -11,4 +11,4 @@ s/](Rules)/](Rules.html)/g
 s/](Risk-of-trusting-subdomains)/](Risk-of-trusting-subdomains.html)/g
 s/](Privacy)/](Privacy.html)/g
 s/](What-is-prefetching)/](What-is-prefetching.html)/g
-s|https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/_media/|_media/|g
+s|https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/|media/|g
