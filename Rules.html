@@ -15,11 +15,11 @@
 <h1 id="rules">Rules</h1>
 <p>RequestPolicy <strong>rules</strong> combine 3 items:</p>
 <ul>
-<li>The <strong>origin</strong> is a domain from where cross-site requests originate.<br /></li>
-<li>Commonly, this is the site you are currently browsing when the cross-site request is done.<br /></li>
-<li>A <strong>destination</strong> is the domain/group of domains that is the target of a cross-site request.<br /></li>
-<li>Commonly, this can be a CDN, a separate/special domain for static contents or scripts used on a site, or an advertising/metrics/statistics network.<br /></li>
-<li>The <strong>policy</strong> is the action that RequestPolicy will apply to a cross-site request, depending on it's origin and destination.<br /></li>
+<li>The <strong>origin</strong> is a domain from where cross-site requests originate.</li>
+<li>Commonly, this is the site you are currently browsing when the cross-site request is done.</li>
+<li>A <strong>destination</strong> is the domain/group of domains that is the target of a cross-site request.</li>
+<li>Commonly, this can be a CDN, a separate/special domain for static contents or scripts used on a site, or an advertising/metrics/statistics network.</li>
+<li>The <strong>policy</strong> is the action that RequestPolicy will apply to a cross-site request, depending on it's origin and destination.</li>
 <li>It can be <em>block</em> or <em>allow</em>.</li>
 </ul>
 <p><em>Note: When both an allow and a block rule match a request, the user's default rule is used. (A priority system between rules is considered in <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/491">issue 491</a>)</em></p>
@@ -27,9 +27,9 @@
 <h2 id="origin-and-destination">Origin and Destination</h2>
 <p>The origin and destination components of a rule can have the following properties. All properties are optional. An empty rule property will not be considered when matching against requests.</p>
 <ul>
-<li><strong>Scheme:</strong> The URL's scheme (protocol). For example, &quot;http&quot; or &quot;https&quot;.<br /></li>
-<li><strong>Host:</strong> The URL's host. For example, <code>example.com</code> (domain name), <code>192.30.252.128</code> (IPv4 address), or <code>fe80:0000:0000:0000:0202:b3ff:fe1e:8329</code> (IPv6 address).<br /></li>
-<li><em>Note: For domain names, you can use a wildcard <code>*</code> to indicate any or no subdomain. For example, <code>*.example.com</code> will match <code>example.com</code>, <code>www.example.com</code>, or <code>a.b.c.example.com</code>. Wildcards are only supported as the leftmost label of a hostname. Wildcards are not supported anywhere else in the name and cannot be mixed with other characters.</em><br /></li>
+<li><strong>Scheme:</strong> The URL's scheme (protocol). For example, &quot;http&quot; or &quot;https&quot;.</li>
+<li><strong>Host:</strong> The URL's host. For example, <code>example.com</code> (domain name), <code>192.30.252.128</code> (IPv4 address), or <code>fe80:0000:0000:0000:0202:b3ff:fe1e:8329</code> (IPv6 address).</li>
+<li><em>Note: For domain names, you can use a wildcard <code>*</code> to indicate any or no subdomain. For example, <code>*.example.com</code> will match <code>example.com</code>, <code>www.example.com</code>, or <code>a.b.c.example.com</code>. Wildcards are only supported as the leftmost label of a hostname. Wildcards are not supported anywhere else in the name and cannot be mixed with other characters.</em></li>
 <li><strong>Port:</strong> The URL's port. For example, <code>81</code> or <code>8080</code>. This may also be <code>*</code> to indicate that any ports should match. By default, rules that do not specify ports only match the default port for the request's scheme (eg. <code>80</code> for <code>http</code>).</li>
 </ul>
 </body>
