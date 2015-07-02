@@ -17,9 +17,9 @@
 <h2 id="setting-up---default-policy">Setting up - default policy</h2>
 <p>The first thing to do when setting up RequestPolicy is to choose a <strong>default policy</strong>. It determines whether cross-site requests should be <strong>allowed or blocked by default</strong>, when there are no other rules that match the request. This affects ease of use for the addon, and your security/privacy level:</p>
 <ul>
-<li><strong>Allow requests by default.</strong> This is the less secure/private setting. All requests will be allowed by default unless you tell RequestPolicy not to allow them. This is also the easiest option: your browser behavior will not change from before installing RequestPolicy, websites will not break unexpectedly.<br /></li>
-<li><strong>Block requests by default.</strong> This is the most secure/private setting. RequestPolicy will block all cross-site requests that you have not explicitly approved. This will cause some websites not to display/function properly, so you will have to do some manual whitelisting, explained later.<br /></li>
-<li>For <strong>easier usage</strong> of this setting, you may want to enable <strong><a href="#Setting-up---subscriptions">subscriptions</a></strong> (see below).<br /></li>
+<li><strong>Allow requests by default.</strong> This is the less secure/private setting. All requests will be allowed by default unless you tell RequestPolicy not to allow them. This is also the easiest option: your browser behavior will not change from before installing RequestPolicy, websites will not break unexpectedly.</li>
+<li><strong>Block requests by default.</strong> This is the most secure/private setting. RequestPolicy will block all cross-site requests that you have not explicitly approved. This will cause some websites not to display/function properly, so you will have to do some manual whitelisting, explained later.</li>
+<li>For <strong>easier usage</strong> of this setting, you may want to enable <strong><a href="#Setting-up---subscriptions">subscriptions</a></strong> (see below).</li>
 <li>For <strong>even more security/privacy</strong>, you can disable the option to <code>allow requests to the same domain</code>. Requests between subdomains of the same “site” will also be blocked. For example, <code>example.com -&gt; subdomain.example.com</code> will be blocked. This will cause browsing on many sites to break.</li>
 </ul>
 <p>The default policy can be changed at any time by going to <code>Preferences &gt; Manage policies &gt; Default policy</code></p>
@@ -29,10 +29,6 @@
 <td>Blocking requests by default will cause many websites to break. For the first few weeks, you may frequently have to open the RequestPolicy menu to allow requests. Over time you will build up your policy for the websites you visit regularly and so you will only see broken websites when you visit sites you haven't visited before.</td>
     </tr>
 </table>
-
-
-
-
 <hr />
 <h2 id="setting-up---subscriptions">Setting up - subscriptions</h2>
 <p>Subscriptions are preset rules maintained and verified by the community. These rules can fulfil different needs, such as blocking known web browsing tracking sites, or allowing requests to allow certain sites to display/work properly.</p>
@@ -43,15 +39,13 @@
 <td>Keep in mind that enabling a subscription <b>automatically adds allow/block rules</b>  to your RequestPolicy installation, and <b>downloads/updates them automatically</b> with the latest available version. If you want to know more precisely what rules are included in subscriptions, or want to contribute to subscriptions to make RequestPolicy easier to use for others, visit the subscriptions code repository at <a href="https://github.com/RequestPolicyContinued/subscriptions">https://github.com/RequestPolicyContinued/subscriptions</a></td>
 </tr>
 </table>
-
-
 <p><em>Note: In case there is a user rule that conflicts with a subscription rule, the user rule always has priority.</em></p>
 <hr />
 <h2 id="usage-how-requestpolicy-works">Usage: How RequestPolicy Works</h2>
 <p>Every time a web page tells Firefox to make a request to a different website, <strong>Firefox asks RequestPolicy</strong> whether the request should be allowed. To decide whether to allow the request, RequestPolicy looks for <a href="Rules.html">rules</a> in three places:</p>
 <ul>
-<li><strong>Your</strong> policy: rules you have created in RequestPolicy.<br /></li>
-<li><strong>Subscription</strong> policies: rules proposed by the community, maintained by the RequestPolicy developers.<br /></li>
+<li><strong>Your</strong> policy: rules you have created in RequestPolicy.</li>
+<li><strong>Subscription</strong> policies: rules proposed by the community, maintained by the RequestPolicy developers.</li>
 <li><strong>Default</strong> policy: the rule to use when no other rule matches.</li>
 </ul>
 <p>The rest of this tutorial will show you how to manage your policy.</p>
@@ -67,9 +61,9 @@
 <h4 id="blocked-destinations">Blocked destinations</h4>
 <p>These destinations are shown in red. Requests from the current page to these domains (e.g an embedded script or image hosted on this other domain) are blocked.</p>
 <ul>
-<li>Requests to these domains are never sent. Resources hosted on blocked destinations are not downloaded on your computer.<br /></li>
-<li>Blocked destinations are sorted by number of blocked requests (numbers on the right).<br /></li>
-<li>Blocking destinations <strong>prevents downloading unnecessary</strong> resources, as well as tracking scripts from third-parties.<br /></li>
+<li>Requests to these domains are never sent. Resources hosted on blocked destinations are not downloaded on your computer.</li>
+<li>Blocked destinations are sorted by number of blocked requests (numbers on the right).</li>
+<li>Blocking destinations <strong>prevents downloading unnecessary</strong> resources, as well as tracking scripts from third-parties.</li>
 <li>It may also somehow <strong>break</strong> functionality or display if the blocked resources are needed to make the site work properly (“real” content images, usability scripts, styling…)</li>
 </ul>
 <p>If you <strong>click on one of the blocked destinations</strong>, you are given options to allow this destination. The first time you visit a site, if it doesn’t display or work properly, you will have to <strong>allow</strong> some destinations. Let’s say you are browsing example.com, and it doesn’t display properly:</p>
@@ -77,8 +71,8 @@
 <p>Look in the menu for blocked destinations that have a <strong>large number of blocked requests</strong> (number on the right of the domain name). This might indicate that the page tries to load a lot of content from this domain, but RequestPolicy blocks it. Click on one of these destinations (eg. <code>example.net</code>). From there, the possible actions are displayed in the right pane.</p>
 <p><strong>Allow requests from example.com to another.net:</strong> Use this if you want to allow pages from <code>example.com</code> to use content hosted on <code>another.net</code>.</p>
 <ul>
-<li>If content hosted on <code>another.net</code> is really required to display the page, the page will be working when you reload it (just click anywhere outside the menu).<br /></li>
-<li>You may need to allow several domains for the page to work correctly.<br /></li>
+<li>If content hosted on <code>another.net</code> is really required to display the page, the page will be working when you reload it (just click anywhere outside the menu).</li>
+<li>You may need to allow several domains for the page to work correctly.</li>
 <li>Over time you will learn to recognize destinations that need to be allowed, and those that are useless/harmful.</li>
 </ul>
 <p><strong>Allow requests to another.net:</strong> This will allow <strong>all</strong> requests to <code>another.net</code>, from any page, on any domain. This is not recommended unless you keep having to allow requests to <code>another.net</code> from <strong>many</strong> sites.</p>
@@ -108,7 +102,7 @@
 <hr />
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/665#issue-84260569">Updating from RP 0.5.xx to RPC</a><br /></li>
+<li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/665#issue-84260569">Updating from RP 0.5.xx to RPC</a></li>
 <li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/665#issuecomment-108138806">Using RequestPolicy with Default Deny and a short Whitelist</a></li>
 </ul>
 </body>

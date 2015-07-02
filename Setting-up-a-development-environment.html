@@ -48,7 +48,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre><code>sudo apt-get install python-pip
 sudo pip install mozmill</code></pre>
 <h4 id="firefox-nightly">Firefox Nightly</h4>
-<p>Download the file you need from <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/">http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/</a></p>
+<p>Download the file you need from <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/" class="uri">http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/</a></p>
 <p>Install/extract the files into <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code>. The binary file named <code>firefox</code> should be directly in that directory.</p>
 <p><strong>Hint:</strong> If you want, you could also install Fx Nightly elsewhere and create a symlink from <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code> to that directory.</p>
 <h3 id="run-mozrunner">run <code>mozrunner</code></h3>
@@ -59,8 +59,8 @@ sudo pip install mozmill</code></pre>
 <p>It's annoying to have to rebuild and reinstall the extension constantly during<br />development. To avoid that, you can create a &quot;proxy&quot; extension by creating a<br />file in your Firefox profile's extensions directory which tells Firefox that<br />it should look for the unpackaged extension files in a directory of your<br />choice.</p>
 <h3 id="quick-instructions">Quick instructions</h3>
 <ol>
-<li>Create a <a href="http://kb.mozillazine.org/Profile_Manager#Creating_a_new_profile">new firefox profile</a>, e.g. called <code>rp-dev</code>.<br /></li>
-<li>Start firefox with the new profile (e.g. <code>firefox -no-remote -P rp-dev</code>) and close it again.<br /></li>
+<li>Create a <a href="http://kb.mozillazine.org/Profile_Manager#Creating_a_new_profile">new firefox profile</a>, e.g. called <code>rp-dev</code>.</li>
+<li>Start firefox with the new profile (e.g. <code>firefox -no-remote -P rp-dev</code>) and close it again.</li>
 <li>Figure out the <a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>, go there and run this command: <code>echo &quot;/path/to/requestpolicy/src&quot; &gt; requestpolicy@requestpolicy.com</code> (or do it by hand).</li>
 </ol>
 <h3 id="detailed-instructions">Detailed instructions</h3>

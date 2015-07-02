@@ -36,15 +36,15 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Note that if you're having an idea for RequestPolicy, please talk about it in the issue tracker.<br />What you shouldn't do is spending months implementing a feature in silence and then find yourself disappointed if we don't want to merge your changes. This would be frustrating for you, the other developers, and the RequestPolicy users.</p>
 <p>Getting started with RequestPolicy development:</p>
 <ul>
-<li><a href="Setting-up-a-development-environment.html">Setting up a development environment</a><br /></li>
+<li><a href="Setting-up-a-development-environment.html">Setting up a development environment</a></li>
 <li><a href="Working-with-the-Source-Code.html">Working with the source code</a></li>
 </ul>
 <p>You will find some information about RequestPolicy below.</p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues">Current development</a><br /></li>
-<li><a href="http://forums.mozillazine.org/viewtopic.php?f=48&amp;t=1051805">Thread on mozillazine</a><br /></li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy/reviews/">Reviews of RP 0.5</a><br /></li>
+<li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues">Current development</a></li>
+<li><a href="http://forums.mozillazine.org/viewtopic.php?f=48&amp;t=1051805">Thread on mozillazine</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy/reviews/">Reviews of RP 0.5</a></li>
 <li><a href="https://groups.google.com/d/forum/requestpolicy-discuss">Google Group for the original RP</a></li>
 </ul>
 <h2 id="help-and-support-for-users-and-developers">Help and support for users and developers</h2>
@@ -59,14 +59,14 @@ sudo npm install -g preprocessor</code></pre>
 <p>After preparation, run <code>make</code> from the repository's root directory. The XPI file will be created at <code>dist/requestpolicy.xpi</code> and can be used for easy installation of RP into your web browser (e.g. Firefox).</p>
 <h2 id="good-to-know">Good to know</h2>
 <ul>
-<li>As a starting point you might have a look at RP's <em>manifest.ini</em> (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Tutorial/Manifest_Files">tutorial</a>; <a href="https://developer.mozilla.org/en-US/docs/Chrome_Registration">more info on chrome registration</a>).<br /></li>
-<li>RequestPolicy implements an <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM">XPCOM</a> component (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Creating_components">general tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Building_components_in_JavaScript">JavaScript-specific guide</a>) to intercept requests (see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIContentPolicy#shouldLoad%28%29">nsIContentPolicy.shouldLoad()</a>).<br /></li>
-<li>Have a look at the MDN articles <a href="https://developer.mozilla.org/en-US/docs/Security_check_basics">Security check basics</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a><br /></li>
-<li>RequestPolicy adds <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL">XUL</a> elements to every browser window, such as the menu button.<br /></li>
-<li><strong>&quot;Base Domain&quot;:</strong> RP uses the <em>Public Suffix List</em>. See also:<br /></li>
-<li><a href="http://en.wikipedia.org/wiki/Public_Suffix_List">http://en.wikipedia.org/wiki/Public_Suffix_List</a><br /></li>
-<li><a href="https://publicsuffix.org/">https://publicsuffix.org/</a><br /></li>
-<li><strong>URI and URI schemes:</strong> See <a href="http://tools.ietf.org/html/std66">STD 66</a> (Internet standard) – especially <a href="http://tools.ietf.org/html/std66#appendix-A">Appendix A</a> – and <a href="https://en.wikipedia.org/wiki/URI_scheme">wikipedia</a>.<br /></li>
+<li>As a starting point you might have a look at RP's <em>manifest.ini</em> (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Tutorial/Manifest_Files">tutorial</a>; <a href="https://developer.mozilla.org/en-US/docs/Chrome_Registration">more info on chrome registration</a>).</li>
+<li>RequestPolicy implements an <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM">XPCOM</a> component (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Creating_components">general tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Building_components_in_JavaScript">JavaScript-specific guide</a>) to intercept requests (see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIContentPolicy#shouldLoad%28%29">nsIContentPolicy.shouldLoad()</a>).</li>
+<li>Have a look at the MDN articles <a href="https://developer.mozilla.org/en-US/docs/Security_check_basics">Security check basics</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li>
+<li>RequestPolicy adds <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL">XUL</a> elements to every browser window, such as the menu button.</li>
+<li><strong>&quot;Base Domain&quot;:</strong> RP uses the <em>Public Suffix List</em>. See also:</li>
+<li><a href="http://en.wikipedia.org/wiki/Public_Suffix_List" class="uri">http://en.wikipedia.org/wiki/Public_Suffix_List</a></li>
+<li><a href="https://publicsuffix.org/" class="uri">https://publicsuffix.org/</a></li>
+<li><strong>URI and URI schemes:</strong> See <a href="http://tools.ietf.org/html/std66">STD 66</a> (Internet standard) – especially <a href="http://tools.ietf.org/html/std66#appendix-A">Appendix A</a> – and <a href="https://en.wikipedia.org/wiki/URI_scheme">wikipedia</a>.</li>
 <li>...</li>
 </ul>
 <h2 id="detailed-information-on-some-topics">Detailed information on some topics</h2>
@@ -83,17 +83,17 @@ sudo npm install -g preprocessor</code></pre>
 <h4 id="startup-and-shutdown">Startup and Shutdown</h4>
 <p>The startup sequence is as follows:</p>
 <ul>
-<li>The <code>startup</code> function in <code>bootstrap.js</code> gets called by the browser<br /></li>
-<li><code>bootstrap.js</code> calls <code>Environment Manager.startup()</code><br /></li>
-<li>The Environment Manager …<br /></li>
-<li>does some <strong>essential tasks</strong> which are necessary for bootstrapped extensions<br /></li>
-<li><strong>loads main modules</strong> which again load more modules. Any of those loaded modules might add startup functions to the Process Environment.<br /></li>
+<li>The <code>startup</code> function in <code>bootstrap.js</code> gets called by the browser</li>
+<li><code>bootstrap.js</code> calls <code>Environment Manager.startup()</code></li>
+<li>The Environment Manager …</li>
+<li>does some <strong>essential tasks</strong> which are necessary for bootstrapped extensions</li>
+<li><strong>loads main modules</strong> which again load more modules. Any of those loaded modules might add startup functions to the Process Environment.</li>
 <li>starts up the Process Environment. No other Environments are started up explicilty, they have to be started up elsewhere.</li>
 </ul>
 <p>The shutdown sequence is quite similar:</p>
 <ul>
-<li>The <code>shutdown</code> function in <code>bootstrap.js</code> gets called by the browser<br /></li>
-<li><code>bootstrap.js</code> calls <code>Environment Manager.shutdown()</code>. This is the main process' Environment Manager, as <code>bootsrap.js</code> is in the main process.<br /></li>
+<li>The <code>shutdown</code> function in <code>bootstrap.js</code> gets called by the browser</li>
+<li><code>bootstrap.js</code> calls <code>Environment Manager.shutdown()</code>. This is the main process' Environment Manager, as <code>bootsrap.js</code> is in the main process.</li>
 <li>The Environment Manager tells all Environments to shut down.</li>
 </ul>
 <h4 id="special-environments">Special environments</h4>
@@ -104,49 +104,49 @@ sudo npm install -g preprocessor</code></pre>
 <p>Special attention needs to be given to the fact that even when Electrolysis is enabled there might still be tabs which are in the <em>main</em> process. So if a new Environment is created in the framescript's scope, it will be managed by either the main process' or the child process' <code>EnvironmentManager</code>. However, the frame script will create its own environment only if it's in the main process; framescripts in child processes can use the Process Environment. The reason is that also the framescript imports some JavaScript modules, and those modules might add startup functions to the Process Environment as well. This way the frame script needs to manage only one instead of two Environments in the child process.</p>
 <p>So the summary of the framescript's startup process is:</p>
 <ul>
-<li>Import the Environment Manager<br /></li>
-<li>determine the FrameScript Environment<br /></li>
-<li>child process: use Process Environment<br /></li>
-<li>parent process: create a new Environment<br /></li>
+<li>Import the Environment Manager</li>
+<li>determine the FrameScript Environment</li>
+<li>child process: use Process Environment</li>
+<li>parent process: create a new Environment</li>
 <li>call the Environment Manager's <code>registerFramescript()</code> function. The Environment Manager will then listen to the &quot;shutdown&quot; message, which will be sent from the main process.</li>
 </ul>
 <p>The shutdown works the same as in the main process,</p>
 <h2 id="glossary">Glossary</h2>
 <ul>
-<li><code>ruleset</code>: a list of <em>rules</em>. can be empty.<br /></li>
-<li><code>rule</code>: contains some selection specification (e.g. <code>origin</code> and <code>destination</code>) and a <code>policy</code><br /></li>
+<li><code>ruleset</code>: a list of <em>rules</em>. can be empty.</li>
+<li><code>rule</code>: contains some selection specification (e.g. <code>origin</code> and <code>destination</code>) and a <code>policy</code></li>
 <li><code>policy</code>: whether requests matching a rule are <em>allowed</em> or <em>blocked</em></li>
 </ul>
 <h2 id="abbreviations">Abbreviations</h2>
 <p>The following abbreviations are used</p>
 <ul>
-<li><code>RP</code>: RequestPolicy; <code>RPC</code>: RequestPolicy Continued<br /></li>
-<li><code>Fx</code>: Firefox<br /></li>
-<li><code>e10s</code>: Electrolysis (aka multiprocess firefox)<br /></li>
+<li><code>RP</code>: RequestPolicy; <code>RPC</code>: RequestPolicy Continued</li>
+<li><code>Fx</code>: Firefox</li>
+<li><code>e10s</code>: Electrolysis (aka multiprocess firefox)</li>
 <li>…</li>
 </ul>
-<h2 id="aboutconfig-configuration-settings"><a href="about:config">about:config</a> configuration settings</h2>
+<h2 id="aboutconfig-configuration-settings"><a href="about:config" class="uri">about:config</a> configuration settings</h2>
 <p>Here is a list of RequestPolicyContinued settings that can be edited by going to <code>about:config</code> in the address bar, along with their descriptions, defaults and possible values (TODO):</p>
 <ul>
-<li><code>extensions.requestpolicy.autoReload</code><br /></li>
-<li><code>extensions.requestpolicy.defaultPolicy.allow</code><br /></li>
-<li><code>extensions.requestpolicy.defaultPolicy.allowSameDomain</code><br /></li>
-<li><code>extensions.requestpolicy.indicateBlacklistedObjects</code><br /></li>
-<li><code>extensions.requestpolicy.indicateBlockedObjects</code><br /></li>
-<li><code>extensions.requestpolicy.initialSetupDialogShown</code><br /></li>
-<li><code>extensions.requestpolicy.lastAppVersion</code><br /></li>
-<li><code>extensions.requestpolicy.lastVersion</code><br /></li>
-<li><code>extensions.requestpolicy.log</code><br /></li>
-<li><code>extensions.requestpolicy.log.level</code><br /></li>
-<li><code>extensions.requestpolicy.log.types</code><br /></li>
-<li><code>extensions.requestpolicy.menu.info.showNumRequests</code><br /></li>
-<li><code>extensions.requestpolicy.menu.sorting</code><br /></li>
-<li><code>extensions.requestpolicy.prefetch.dns.disableOnStartup</code><br /></li>
-<li><code>extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall</code><br /></li>
-<li><code>extensions.requestpolicy.prefetch.link.disableOnStartup</code><br /></li>
-<li><code>extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall</code><br /></li>
-<li><code>extensions.requestpolicy.privateBrowsingPermanentWhitelisting</code><br /></li>
-<li><code>extensions.requestpolicy.startWithAllowAllEnabled</code><br /></li>
+<li><code>extensions.requestpolicy.autoReload</code></li>
+<li><code>extensions.requestpolicy.defaultPolicy.allow</code></li>
+<li><code>extensions.requestpolicy.defaultPolicy.allowSameDomain</code></li>
+<li><code>extensions.requestpolicy.indicateBlacklistedObjects</code></li>
+<li><code>extensions.requestpolicy.indicateBlockedObjects</code></li>
+<li><code>extensions.requestpolicy.initialSetupDialogShown</code></li>
+<li><code>extensions.requestpolicy.lastAppVersion</code></li>
+<li><code>extensions.requestpolicy.lastVersion</code></li>
+<li><code>extensions.requestpolicy.log</code></li>
+<li><code>extensions.requestpolicy.log.level</code></li>
+<li><code>extensions.requestpolicy.log.types</code></li>
+<li><code>extensions.requestpolicy.menu.info.showNumRequests</code></li>
+<li><code>extensions.requestpolicy.menu.sorting</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.privateBrowsingPermanentWhitelisting</code></li>
+<li><code>extensions.requestpolicy.startWithAllowAllEnabled</code></li>
 <li><code>extensions.requestpolicy.welcomeWindowShown</code></li>
 </ul>
 </body>
