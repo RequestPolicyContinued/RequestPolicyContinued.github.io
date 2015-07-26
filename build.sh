@@ -9,8 +9,8 @@ set -o nounset
 
 
 function gettitle() {
-	grep '<!-- HTMLTITLE' "$1" | \
-	sed -e 's/<!-- HTMLTITLE //g' -e 's/-->//g'
+	grep --max-count=1 '<!-- HTMLTITLE' "$1" | \
+	sed --regexp-extended -e 's/^.*<!-- +HTMLTITLE +(.*) +-->.*$/\1/g'
 }
 
 workdir="$(dirname $0)"
