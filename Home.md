@@ -1,5 +1,5 @@
 <div id="header">
-<h1 id="header-h1">RequestPolicy<img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/flag-tiny.png" /><sup>Continued</sup></h1>
+<h1 id="header-h1">RequestPolicy<br /><span id="header-continued">Continued</span></h1>
 <h3 id="header-subtitle">Be in control</h3>
 <p id="header-description">RequestPolicy is an extension for Mozilla browsers that increases your browsing <b>privacy, security, and speed</b> by giving you control over cross-site requests on pages you visit.</p>
 </div>
