@@ -9,8 +9,34 @@ body {
   background-color: #FDFAFA;
 }
 
+#header {
+  background-color: #801A15;
+  color: #fff;
+}
+
 h1 {
   font-size: 2.3em;
+}
+
+#header-h1 {
+  background-image: url(media/flag-tiny.png);
+  background-position: 34px 34px;
+  background-repeat: no-repeat;
+  line-height: 0.7;
+  padding: 30px 20px 20px 82px;
+}
+
+#header-continued {
+  font-size: 0.6em;
+  padding-left: 4em;
+}
+
+#header-subtitle {
+  padding: 0 0 0 20px;
+}
+
+#header-description {
+  padding: 0 20px 20px 20px;
 }
 
 table {
