@@ -1,4 +1,5 @@
 # About RequestPolicy
+<!-- HTMLTITLE About - RequestPolicy Continued -->
 
 RequestPolicy is Free Software, licensed under the GPL v3.
 

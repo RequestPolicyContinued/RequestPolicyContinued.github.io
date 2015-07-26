@@ -1,3 +1,6 @@
+# Working with the source code
+<!-- HTMLTITLE Working with the Source Code - RequestPolicy Continued -->
+
 After setting up a [development environment](Setting-up-a-development-environment) you can start tinkering with the code.
 
 ## using the Browser Toolbox (debugging extensions)

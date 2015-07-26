@@ -1,4 +1,5 @@
 # RequestPolicy Continued - Quick Start
+<!-- HTMLTITLE Quick Start - RequestPolicy Continued -->
 
 Here is a quick tutorial on how to use RequestPolicy. If you have any questions or ideas, please [open a new issue](https://github.com/RequestPolicyContinued/requestpolicy/issues).
 

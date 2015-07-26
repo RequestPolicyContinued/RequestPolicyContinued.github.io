@@ -1,21 +1,5 @@
 ## Frequently Asked Questions
-
-<!-- MarkdownTOC -->
-
-- [Limitations - What RequestPolicy Continued cannot help with](#limitations---what-requestpolicy-continued-cannot-help-with)
-- [Which kinds of requests are blocked?](#which-kinds-of-requests-are-blocked)
-- [How are sites classified as "third-party sites"?](#how-are-sites-classified-as-third-party-sites)
-- [What changes to my browser are left behind after uninstalling RequestPolicy?](#what-changes-to-my-browser-are-left-behind-after-uninstalling-requestpolicy)
-- [Can websites detect that you are using RequestPolicy?](#can-websites-detect-that-you-are-using-requestpolicy)
-- [Other browser addons](#other-browser-addons)
-- [The flag icon is red! What is wrong?](#the-flag-icon-is-red-what-is-wrong)
-- [How to deal with ajax.googleapis.com?](#how-to-deal-with-ajaxgoogleapiscom)
-- [How to find relevant information about a bug](#how-to-find-relevant-information-about-a-bug)
-
-<!-- /MarkdownTOC -->
-
-
----------------------------------------
+<!-- HTMLTITLE FAQ - RequestPolicy Continued -->
 
 ### Limitations - What RequestPolicy Continued cannot help with
 
