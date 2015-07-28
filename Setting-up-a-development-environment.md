@@ -1,3 +1,6 @@
+# Setting up a development enironment
+<!-- HTMLTITLE Setting up a development environment - RequestPolicy Continued -->
+
 ## Getting the Source Code
 
 If you'd like to download the RequestPolicy source code from our version

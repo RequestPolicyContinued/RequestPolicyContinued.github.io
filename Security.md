@@ -1,5 +1,5 @@
 ## Security benefits of using RequestPolicy
-
+<!-- HTMLTITLE Security - RequestPolicy Continued -->
 
 _Warning: When using RequestPolicy with the [default policy](quickstart#Setting-up---default-policy) being `Allow`, you won't be protected from the attacks/techniques described below!_
 

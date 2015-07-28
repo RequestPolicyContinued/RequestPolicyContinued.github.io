@@ -1,5 +1,5 @@
 ## Privacy benefits of using RequestPolicy
-
+<!-- HTMLTITLE Privacy - RequestPolicy Continued -->
 
 Many companies know your personal browsing habits
 

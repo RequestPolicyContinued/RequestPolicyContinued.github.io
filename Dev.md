@@ -1,4 +1,5 @@
 # RequestPolicy Development Wiki
+<!-- HTMLTITLE Development - RequestPolicy Continued -->
 
 Welcome to the RequestPolicy Development Wiki! This wiki is intended to encourage more
 people to become RequestPolicy developers and contributors. This documentation is by far not complete, so if you have an idea for an addition, a change or a removal, please let us know.

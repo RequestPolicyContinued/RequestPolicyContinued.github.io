@@ -1,4 +1,5 @@
 # Rules
+<!-- HTMLTITLE Rules - RequestPolicy Continued -->
 
 RequestPolicy **rules** combine 3 items:
 
@@ -21,3 +22,4 @@ The origin and destination components of a rule can have the following propertie
  * **Host:** The URL's host. For example, `example.com` (domain name), `192.30.252.128` (IPv4 address), or `fe80:0000:0000:0000:0202:b3ff:fe1e:8329` (IPv6 address).
   * _Note: For domain names, you can use a wildcard `*` to indicate any or no subdomain. For example, `*.example.com` will match `example.com`, `www.example.com`, or `a.b.c.example.com`. Wildcards are only supported as the leftmost label of a hostname. Wildcards are not supported anywhere else in the name and cannot be mixed with other characters._
   * **Port:** The URL's port. For example, `81` or `8080`. This may also be `*` to indicate that any ports should match. By default, rules that do not specify ports only match the default port for the request's scheme (eg. `80` for `http`).
+

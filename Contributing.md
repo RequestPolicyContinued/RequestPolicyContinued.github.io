@@ -1,4 +1,5 @@
 ## Contributing
+<!-- HTMLTITLE Contributing - RequestPolicy Continued -->
 
 Here are a few ways you can help make this project better!
 

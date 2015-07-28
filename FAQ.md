@@ -1,6 +1,7 @@
 ## Frequently Asked Questions
+<!-- HTMLTITLE FAQ - RequestPolicy Continued -->
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC depth=3 -->
 
 - [Limitations - What RequestPolicy Continued cannot help with](#limitations---what-requestpolicy-continued-cannot-help-with)
 - [Which kinds of requests are blocked?](#which-kinds-of-requests-are-blocked)
@@ -13,7 +14,6 @@
 - [How to find relevant information about a bug](#how-to-find-relevant-information-about-a-bug)
 
 <!-- /MarkdownTOC -->
-
 
 ---------------------------------------
 

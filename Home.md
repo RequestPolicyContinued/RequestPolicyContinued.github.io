@@ -3,7 +3,7 @@
 <h3 id="header-subtitle">Be in control</h3>
 <p id="header-description">RequestPolicy is an extension for Mozilla browsers that increases your browsing <b>privacy, security, and speed</b> by giving you control over cross-site requests on pages you visit.</p>
 </div>
-
+<!-- HTMLTITLE RequestPolicy Continued -->
 
 
 <html>

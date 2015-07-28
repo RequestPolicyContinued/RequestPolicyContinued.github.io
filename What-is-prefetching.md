@@ -1,6 +1,7 @@
-
-What is Prefetching?
+## What is Prefetching?
 ← Back to main page
+
+<!-- HTMLTITLE What is Prefetching? - RequestPolicy Continued -->
 
 There are two types of prefetching:
 
@@ -12,3 +13,4 @@ An example of web page prefetching is when searching with Google. Google search 
 Unfortunately, with the way prefetching is currently implemented in Firefox, it is not possible to selectively block prefetch requests in the same way that other cross-site requests can be blocked. The only option is to disable prefetching completely.
 
 For more information on link prefetching in Mozilla browsers (such as Firefox), see the Mozilla link prefetching FAQ and Pat McManus' blog post.
+
