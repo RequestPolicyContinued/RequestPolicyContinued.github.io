@@ -1,7 +1,7 @@
 ## Security benefits of using RequestPolicy
 
 
-_Warning: When using RequestPolicy with the [default policy](quickstart#Setting-up---default-policy) being `Allow`, you won't be protected from the attacks/techniques described below!_
+_Warning: When using RequestPolicy with the [default policy](Quickstart#Setting-up---default-policy) being `Allow`, you won't be protected from the attacks/techniques described below!_
 
 #### Cross-Site Request Forgery
 

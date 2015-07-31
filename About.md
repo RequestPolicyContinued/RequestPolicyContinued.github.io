@@ -28,4 +28,4 @@ The original RequestPolicy was discontinued in 2012 by the author and work resum
 
 ## Beta releases
 
-Beta releases for testers and developers are available on the project's releases page. You can also [build the addon from the latest code revision](dev#getting-the-source-code).
+Beta releases for testers and developers are available on the project's releases page. You can also [build the addon from the latest code revision](Dev#getting-the-source-code).
