@@ -13,7 +13,7 @@ mdfiles=$(find ./ -maxdepth 1 -name "*.md")
 
 for file in $mdfiles; do
 	outfile="$(basename "$file" .md).html"
-	sed --file replace.sed < "$file" | \
+	sed --regexp-extended --file replace.sed < "$file" | \
     pandoc --from markdown_github \
     --write html5 \
     --standalone \
