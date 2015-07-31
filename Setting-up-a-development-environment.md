@@ -1,62 +1,174 @@
+
+# Setting up a development environment
+
+Developing RequestPolicy requires some prerequisites. If you only want to build the XPI file, possibly with some changes, you need only a few things.
+
+A full development environment, on the other hand, includes an environment for running all unit tests. In case of the full dev environment you'll need to prepare much more, so that I recommend you to create a chroot directory.
+
 ## Getting the Source Code
 
-If you'd like to download the RequestPolicy source code from our version
-control system, you can do so with:
+You will need:
+
+* Git
+
+```bash
+sudo apt-get install git
+```
+
+---
+
+We use `git` as our version control system. This is how to get the code:
 
 ```bash
 git clone https://github.com/RequestPolicyContinued/requestpolicy.git
 ```
 
-The above command will create a directory called `requestpolicy`. Under that
-is a `src` directory where the source code lives.
+The command will create a directory called `requestpolicy`.
 
-By the way, any XPI file (the extension file you install in your browser)
-contains all of the source code as well. XPI files are just zip
-archives which you can extract like any other. However, in version control
-there's a `chrome.manifest` file for local development that you'll probably
-want to use even if you're working from an extracted XPI. 
 
-## Building the Extension XPI
+## Building the addon
 
-We use [GNU Make](https://www.gnu.org/software/make/). To create the XPI file, simply run 
+You will need:
+
+* [GNU Make](https://www.gnu.org/software/make/)
+* npm (package manager)
+* [preprocessor](https://www.npmjs.com/package/preprocessor) (npm package)
+
+```bash
+sudo apt-get install make npm
+sudo npm install -g preprocessor
+```
+
+To build the XPI run
 
 ```bash
 make
 ```
 
-from the repo's root directory. After that the xpi will be located at `dist/requestpolicy.xpi`.
 
-## Run Firefox & RP with `mozrunner`
+## Running Firefox and RP with Mozrunner
 
-`mozrunner` is a python package that helps you run Mozilla binaries (firefox, thunderbird, seamonkey, …) in a predefined environment. Every time you run `mozrunner`, it will create a new temporary profile – it will be deleted afterwards.
+You will need:
 
-### preparation steps
-#### install `mozrunner`
+* `virtualenv`
 
-You can install [`mozrunner`](http://pypi.python.org/pypi/mozrunner) via `python-pip`. On a debian system, run:
-
+```bash
+sudo apt-get install python-virtualenv
 ```
-sudo apt-get install python-pip
-sudo pip install mozmill
-```
-#### Firefox Nightly
 
-Download the file you need from http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/
+* Firefox Nightly
 
-Install/extract the files into `${rp_root_dir}/.mozilla/software/firefox/nightly/`. The binary file named `firefox` should be directly in that directory.
+Download the file you need from [Mozilla's FTP server](https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/). Extract the files into `${rp_root_dir}/.mozilla/software/firefox/nightly/`. The binary file named `firefox` should be directly in that directory.
 
 **Hint:** If you want, you could also install Fx Nightly elsewhere and create a symlink from `${rp_root_dir}/.mozilla/software/firefox/nightly/` to that directory.
 
-### run `mozrunner`
+When you're done:
 
-First you have to prepare your environment, see below. When you're done, run
-```
+```bash
 make run
 ```
-Firefox Nightly will start up with a completely fresh profile and with RP installed. For more information, take a look at the `Makefile`'s `run` target.
 
 
-## Developing Without Rebuilding the XPI
+## Running unit tests
+
+Setting up an environment for unit testing is optional. You probably won't need it if you do just a few changes to the code.
+
+### xpcshell tests
+
+#### Getting and building firefox
+
+To be able to run the xpcshell you need to build firefox. Be prepared for a long compilation time – up to one hour or even more. You can find build instructions [here](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions). Note that a `.mozconfig` file is not necessary. (If you already have your own firefox build, you don't need to rebuild of course.)
+
+This is what I ran in a chroot environment:
+
+```bash
+# create a new directory /moz
+sudo mkdir /moz
+cd /moz
+
+# get the source (also takes quite long)
+hg clone https://hg.mozilla.org/mozilla-central/
+# alternatively you can use git:
+# git clone https://git.mozilla.org/integration/gecko-dev.git mozilla-central
+
+cd mozilla-central/
+sudo ./mach bootstrap
+./mach build
+```
+
+Run all tests:
+
+```bash
+./tests/run-xpcshell-tests.sh
+```
+
+### Marionette and MozMill
+
+For both Marionette and MozMill tests you currently need to manually set up a Web Server (port 80) with PHP. The web server's root directory has to be `test/content/`.
+
+Besides the Web Server, you need to create aliases for the Web Server. To do that, add the following new line to your `/etc/hosts` file:
+
+```
+127.0.0.1       maindomain.test www.maindomain.test sub-1.maindomain.test sub-2.maindomain.test otherdomain.test www.otherdomain.test sub-1.otherdomain.test sub-2.otherdomain.test thirddomain.test www.thirddomain.test sub-1.thirddomain.test sub-2.thirddomain.test
+```
+
+Not all of those domains are used at the moment, but they will, so add them all. By the way, `.test` is a [reserved TLD](https://en.wikipedia.org/wiki/.test).
+
+### Marionette tests
+
+TODO
+
+### MozMill tests
+
+You need:
+
+* `virtualenv`
+
+```bash
+sudo apt-get install python-virtualenv
+```
+
+* the `mozmill-tests` repository
+
+Instructions at [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Mozmill_tests#Installing_Mozmill). Put the `mozmill-tests` directory into `${rp_root_dir}/.mozilla/`.
+
+Run all mozmill tests:
+
+```bash
+make mozmill
+```
+
+This will automatically download the python packages into a virtualenv directory. Also, in the `mozmill-tests` folder, some symbolic links will be created.
+
+
+---
+
+
+## enable logging
+
+Logging is independant from the previous steps and can be done for any firefox profile. RequestPolicy's logging gives a lot of information about what is going on, so at least for delevoping it's recommended enable it.
+
+By the way, besides RequestPolicy's own logging there's the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console). Sometimes its output is very helpful for debugging. There's an issue about moving RequestPolicy's logging to the Browser Console, see [#563](https://github.com/RequestPolicyContinued/requestpolicy/issues/563).
+
+### summary
+
+On `about:config`, set `extensions.requestpolicy.log` to `true`. Logging is done to `stderr`.
+
+### more in detail
+
+To enable logging open the URL `about:config` in firefox and search for the keys containing `requestpolicy`. Locate the one called `extensions.requestpolicy.log`. Double-click this row to change the value to `true`. Logging should now be enabled immediately, but to see the output, you need to start firefox from the command line. The logging will be done to `stderr`, not to Firefox's error console.
+
+If you want to capture the logged information to a file, you can redirect `stderr` to a file when you start Firefox. For example, the following command will start Firefox in the background and will redirect both `stdout` and `stderr` to a file named `rp.log`:
+
+```bash
+firefox -no-remote -P PROFILENAME >rp.log 2>&1 &
+```
+
+
+---
+
+
+## Developing Without Rebuilding the XPI (obsolete)
 
 It's annoying to have to rebuild and reinstall the extension constantly during
 development. To avoid that, you can create a "proxy" extension by creating a
@@ -105,7 +217,7 @@ mkdir -p extensions
 cd extensions
 
 # Create a file called 'requestpolicy@requestpolicy.com' with a single
-# line in the file which is the path to the 'src' directory. 
+# line in the file which is the path to the 'src' directory.
 echo "/path/to/requestpolicy/src" > requestpolicy@requestpolicy.com
 ```
 
@@ -124,112 +236,3 @@ incorrect), Firefox may delete the file.
 Note that you shouldn't try to install the extension xpi in a profile where
 you've already created the proxy extension. To use an xpi that you've built,
 use a new profile.
-
-
-## enable logging
-
-Logging is independant from the previous steps and can be done for any firefox profile. RequestPolicy's logging gives a lot of information about what is going on, so at least for delevoping it's recommended enable it.
-
-By the way, besides RequestPolicy's own logging there's the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console). Sometimes its output is very helpful for debugging. There's an issue about moving RequestPolicy's logging to the Browser Console, see [#563](https://github.com/RequestPolicyContinued/requestpolicy/issues/563).
-
-### summary
-
-On `about:config`, set `extensions.requestpolicy.log` to `true`. Logging is done to `stderr`.
-
-### more in detail
-
-To enable logging open the URL `about:config` in firefox and search for the keys containing `requestpolicy`. Locate the one called `extensions.requestpolicy.log`. Double-click this row to change the value to `true`. Logging should now be enabled immediately, but to see the output, you need to start firefox from the command line. The logging will be done to `stderr`, not to Firefox's error console.
-
-If you want to capture the logged information to a file, you can redirect `stderr` to a file when you start Firefox. For example, the following command will start Firefox in the background and will redirect both `stdout` and `stderr` to a file named `rp.log`:
-
-```bash
-firefox -no-remote -P PROFILENAME >rp.log 2>&1 &
-```
-
-
-## Unit tests
-
-Setting up an environment for unit testing is an optional, which is probably not needed if you do just a few changes to the code.
-
-### What is unit testing?
-Unit testing ([wikipedia](https://en.wikipedia.org/wiki/Unit_test)) aims at ensuring that functionality that has been implemented is really working, also across different versions and also in case bigger changes to the source code are done.
-
-## Unit tests for RequestPolicy
-
-There are two types of unit tests: MozMill tests and xpcshell tests. You can find setup instructions below. MozMill is used to test UI functionality, whereas the xpcshell is used for tests which only need access to XPCOM.
-
-So far there are only few unit tests, so contributions are very welcome. To ensure quality of RP, every new feature should always get a unit test.
-
-If you have any suggestion, please post it issue [#51](https://github.com/RequestPolicyContinued/requestpolicy/issues/51) or in a new one. If you have any questions, don't hesitate to ask! :)
-
-### MozMill
-
-MozMill tests are currently documented and developed in [issue #487](https://github.com/RequestPolicyContinued/requestpolicy/issues/487).
-
-#### Install and configure
-
-If you want to run the MozMill tests, first install MozMill and get the `mozmill-tests` repository. Instructions you can find [here](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Mozmill_tests#Installing_Mozmill). Put the `mozmill-tests` directory into `${rp_root_dir}/.mozilla/`.
-
-In the `mozmill-tests` folder, create a symbolic link `firefox/tests/addons/requestpolicy@requestpolicy.com/` which links to the `test/mozmill` directory of the RP source code. After that, you have to add a new line to your `/etc/hosts` file:
-
-```
-127.0.0.1       maindomain.test www.maindomain.test sub-1.maindomain.test sub-2.maindomain.test otherdomain.test www.otherdomain.test sub-1.otherdomain.test sub-2.otherdomain.test thirddomain.test www.thirddomain.test sub-1.thirddomain.test sub-2.thirddomain.test
-```
-
-Not all of those domains are used at the moment, but they will, so add them all. By the way, `.test` is a [reserved TLD](https://en.wikipedia.org/wiki/.test).
-
-To be able to access the test html files, you need a web server on port 80. One very simple method is to use python – execute `sudo python -m SimpleHTTPServer 80` in RP's `test/content/` directory, but note that some tests require a web server with PHP support such as the Apache HTTP Server.
-
-#### Run
-
-To run all mozmill tests you can run
-
-```bash
-make mozmill
-```
-
-Note that while the tests are running you shouldn't use keyboard/mouse at all, otherwise tests might fail erroneously.
-
-Alternatively you could type the mozmill command manually, which allows you to specify a different `manifest.ini`. The above command is equivalent to:
-
-```bash
-mozmill --addon-manifests=${path_to_RP_source}/tests/mozmill/addon-manifest.ini -b ${path_to_firefox_bin} -m ${path_to_mozmill-tests_folder}/firefox/tests/addons/requestpolicy@requestpolicy.com/manifest.ini
-```
-
-### xpcshell
-
-#### Getting and building firefox
-
-To be able to run the xpcshell you need to build firefox. Be prepared for a long compilation time – up to one hour or even more. You can find build instructions [here](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions). Note that a `.mozconfig` file is not necessary. (If you already have your own firefox build, you don't need to rebuild of course.)
-
-The commands I ran after fulfilling the prerequisites were:
-
-```bash
-# create a new directory where you want it
-mkdir moz && cd moz
-
-# get the source (also takes quite long)
-hg clone https://hg.mozilla.org/mozilla-central/
-
-cd mozilla-central/
-./mach build
-```
-
-#### Creating a symlink
-
-The bash scripts that are prepared for RP expect the `mozilla-central/` folder to be in the `/moz/` root directory. The easiest way is to create a symbolic link:
-
-```bash
-# replace ${MOZ_DIRECTORY} by the folder containing "mozilla-central"
-sudo ln -is ${MOZ_DIRECTORY} /moz
-```
-
-#### Run
-
-```bash
-# run all of RP's xpcshell unit tests
-tests/run-xpcshell-tests.sh
-
-# run only one test by add the filename (without path) as the first argument
-tests/run-xpcshell-tests.sh test_xyz.js
-```

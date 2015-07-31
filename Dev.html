@@ -9,145 +9,26 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
-  </style>
   <link rel="stylesheet" href="./github-markdown.css">
 </head>
 <body>
-<h1 id="requestpolicy-development-wiki">RequestPolicy Development Wiki</h1>
-<p>Welcome to the RequestPolicy Development Wiki! This wiki is intended to encourage more<br />people to become RequestPolicy developers and contributors. This documentation is by far not complete, so if you have an idea for an addition, a change or a removal, please let us know.</p>
-<p>Note that if you're having an idea for RequestPolicy, please talk about it in the issue tracker.<br />What you shouldn't do is spending months implementing a feature in silence and then find yourself disappointed if we don't want to merge your changes. This would be frustrating for you, the other developers, and the RequestPolicy users.</p>
-<p>Getting started with RequestPolicy development:</p>
+<h1 id="requestpolicy-development">RequestPolicy Development</h1>
+<p>Welcome to the RequestPolicy Development pages! These pages are intended to encourage more people to become RequestPolicy developers and contributors. This documentation is by far not complete, so if you have an idea for an addition, a change or a removal, please let us know.</p>
+<p>If you are instead looking for <strong>Help and Support</strong>, write your question in our <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/484">general discussion thread</a> or create a <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/new">new issue</a>.</p>
+<h2 id="development">Development</h2>
+<h3 id="how-to-contribute">How to contribute</h3>
+<p>There are many ways to contribute to RequestPolicy's development. Have a look at the <a href="Contributing.html">Contributing</a> page.</p>
+<p>If you're having an idea for RequestPolicy, please talk about it in the issue tracker. What you shouldn't do is spending months implementing a feature in silence and then find yourself disappointed if we don't want to merge your changes. This would be frustrating for you, the other developers, and the RequestPolicy users.</p>
+<h3 id="where-to-collaborate">Where to collaborate</h3>
+<p>All development and discussion takes place at <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues">github</a>. The website's location is <a href="https://requestpolicycontinued.github.io/"><a href="https://requestpolicycontinued.github.io/" class="uri">https://requestpolicycontinued.github.io/</a></a>.</p>
+<p>Note that there are still some old places on the web. They aren't used by the RPC project, but are mentioned for completeness: <a href="https://www.requestpolicy.com/">the old project's website</a>, <a href="http://forums.mozillazine.org/viewtopic.php?f=48&amp;t=1051805">a thread on mozillazine</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy/">the old AMO page</a>, and <a href="https://groups.google.com/d/forum/requestpolicy-discuss">the Google Group</a>.</p>
+<h2 id="development-documentation">Development Documentation</h2>
 <ul>
+<li><a href="Development-Basics.html">Development Basics</a></li>
 <li><a href="Setting-up-a-development-environment.html">Setting up a development environment</a></li>
 <li><a href="Working-with-the-Source-Code.html">Working with the source code</a></li>
-</ul>
-<p>You will find some information about RequestPolicy below.</p>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://github.com/RequestPolicyContinued/requestpolicy/issues">Current development</a></li>
-<li><a href="http://forums.mozillazine.org/viewtopic.php?f=48&amp;t=1051805">Thread on mozillazine</a></li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy/reviews/">Reviews of RP 0.5</a></li>
-<li><a href="https://groups.google.com/d/forum/requestpolicy-discuss">Google Group for the original RP</a></li>
-</ul>
-<h2 id="help-and-support-for-users-and-developers">Help and support for users and developers</h2>
-<p>So you are using RequestPolicyContinued? Great! Have a look at the project's <a href="https://requestpolicycontinued.github.io/">website</a>, which contains some information. If you have any questions or ideas, feel free to leave a comment <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/484">in our general discussion thread</a> or create a <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/new">new issue</a>.</p>
-<h2 id="getting-the-source-code">Getting the Source Code</h2>
-<p>If you'd like to download the RequestPolicy source code from our version control system, you can do so with:</p>
-<p><code>git clone https://github.com/RequestPolicyContinued/requestpolicy.git</code></p>
-<h2 id="building-the-xpi-firefox-addon">Building the XPI Firefox addon</h2>
-<p>Before building you need to install <a href="https://www.gnu.org/software/make/">GNU Make</a> as well as the npm package <a href="https://www.npmjs.com/package/preprocessor">preprocessor</a>. On a debian-based system you could run:</p>
-<pre><code>sudo apt-get install make npm
-sudo npm install -g preprocessor</code></pre>
-<p>After preparation, run <code>make</code> from the repository's root directory. The XPI file will be created at <code>dist/requestpolicy.xpi</code> and can be used for easy installation of RP into your web browser (e.g. Firefox).</p>
-<h2 id="good-to-know">Good to know</h2>
-<ul>
-<li>As a starting point you might have a look at RP's <em>manifest.ini</em> (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Tutorial/Manifest_Files">tutorial</a>; <a href="https://developer.mozilla.org/en-US/docs/Chrome_Registration">more info on chrome registration</a>).</li>
-<li>RequestPolicy implements an <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM">XPCOM</a> component (→<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Creating_components">general tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Building_components_in_JavaScript">JavaScript-specific guide</a>) to intercept requests (see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIContentPolicy#shouldLoad%28%29">nsIContentPolicy.shouldLoad()</a>).</li>
-<li>Have a look at the MDN articles <a href="https://developer.mozilla.org/en-US/docs/Security_check_basics">Security check basics</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li>
-<li>RequestPolicy adds <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL">XUL</a> elements to every browser window, such as the menu button.</li>
-<li><strong>&quot;Base Domain&quot;:</strong> RP uses the <em>Public Suffix List</em>. See also:</li>
-<li><a href="http://en.wikipedia.org/wiki/Public_Suffix_List" class="uri">http://en.wikipedia.org/wiki/Public_Suffix_List</a></li>
-<li><a href="https://publicsuffix.org/" class="uri">https://publicsuffix.org/</a></li>
-<li><strong>URI and URI schemes:</strong> See <a href="http://tools.ietf.org/html/std66">STD 66</a> (Internet standard) – especially <a href="http://tools.ietf.org/html/std66#appendix-A">Appendix A</a> – and <a href="https://en.wikipedia.org/wiki/URI_scheme">wikipedia</a>.</li>
-<li>...</li>
-</ul>
-<h2 id="detailed-information-on-some-topics">Detailed information on some topics</h2>
-<h3 id="the-environment-system">The „Environment System“</h3>
-<p><strong>TODO:</strong> Update this chapter. It's partly obsolete since commit <a href="https://github.com/RequestPolicyContinued/requestpolicy/commit/355cf5d61126262c9b22ccf3b018ee78bca6ef9d"><code>355cf5d</code></a>.</p>
-<p>RequestPolicy has a class called <code>Environment</code> which can be used from anywhere. A new environment is created via</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">let</span> env = <span class="kw">new</span> <span class="fu">Environment</span>(<span class="st">&quot;my environment&quot;</span>);</code></pre>
-<p>To each instance of <code>Environment</code>, <code>startup</code> and <code>shutdown</code> functions can be added. This means that the <code>Environment</code> class helps to manage tasks that have to be done when an environment is created or destroyed. When the Environment is about to start up, all registered startup functions will be called; same with shutdown.</p>
-<p><em>By the way</em>, it is possible to add startup and shutdown functions at any time. If a startup function is added when the Environment is already up and running, that function will be called immediately.</p>
-<p>To have some more control, there are different startup/shutdown levels: <code>ESSENTIAL</code>, <code>BACKEND</code>, <code>INTERFACE</code> and <code>UI</code>. To know for what each of them is used, please refer to the code.</p>
-<h4 id="environment-managers">Environment Managers</h4>
-<p><code>EnvironmentManager</code> is a JavaScript module which – as the name says – manages environments. Each <code>Environment</code> imports the Environment Manager and registers itself on the Environment's startup. Similarly, the Environment <em>unregisters</em> itself when it shuts down. Note that because of the nature of JavaScript modules, there will be one Environment Manager for each process.</p>
-<p><code>EnvironmentManager</code> enables to shut down all registered Environments at once. This is needed when the addon gets disabled (RP is a <a href="https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions">bootstrapped extension</a>). More specifically, the main process' Environment Manager's <code>startup</code> and <code>shutdown</code> functions are called by <code>bootstrap.js</code>. The child Environment Managers on the other hand will listen to the shutdown <strong>message</strong> (see <a href="https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox/The_message_manager">MessageManager</a>).</p>
-<h4 id="startup-and-shutdown">Startup and Shutdown</h4>
-<p>The startup sequence is as follows:</p>
-<ul>
-<li>The <code>startup</code> function in <code>bootstrap.js</code> gets called by the browser</li>
-<li><code>bootstrap.js</code> calls <code>Environment Manager.startup()</code></li>
-<li>The Environment Manager …</li>
-<li>does some <strong>essential tasks</strong> which are necessary for bootstrapped extensions</li>
-<li><strong>loads main modules</strong> which again load more modules. Any of those loaded modules might add startup functions to the Process Environment.</li>
-<li>starts up the Process Environment. No other Environments are started up explicilty, they have to be started up elsewhere.</li>
-</ul>
-<p>The shutdown sequence is quite similar:</p>
-<ul>
-<li>The <code>shutdown</code> function in <code>bootstrap.js</code> gets called by the browser</li>
-<li><code>bootstrap.js</code> calls <code>Environment Manager.shutdown()</code>. This is the main process' Environment Manager, as <code>bootsrap.js</code> is in the main process.</li>
-<li>The Environment Manager tells all Environments to shut down.</li>
-</ul>
-<h4 id="special-environments">Special environments</h4>
-<h5 id="process-environments">Process Environments</h5>
-<p>Many modules define startup and shutdown functions. Most modules attach those functions to the <em>Process Environment</em>. That's a small module which simply creates a new Environment once it's called.</p>
-<h5 id="frame-script-environments">Frame Script Environments</h5>
-<p>Frame scripts are needed to support Electrolysis (abbr. e10s; codename for <a href="https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox">Multiprocess Firefox</a>). RequestPolicy loads a frame script into each tab of each browser window, regardless of whether Electrolysis is enabled or not.</p>
-<p>Special attention needs to be given to the fact that even when Electrolysis is enabled there might still be tabs which are in the <em>main</em> process. So if a new Environment is created in the framescript's scope, it will be managed by either the main process' or the child process' <code>EnvironmentManager</code>. However, the frame script will create its own environment only if it's in the main process; framescripts in child processes can use the Process Environment. The reason is that also the framescript imports some JavaScript modules, and those modules might add startup functions to the Process Environment as well. This way the frame script needs to manage only one instead of two Environments in the child process.</p>
-<p>So the summary of the framescript's startup process is:</p>
-<ul>
-<li>Import the Environment Manager</li>
-<li>determine the FrameScript Environment</li>
-<li>child process: use Process Environment</li>
-<li>parent process: create a new Environment</li>
-<li>call the Environment Manager's <code>registerFramescript()</code> function. The Environment Manager will then listen to the &quot;shutdown&quot; message, which will be sent from the main process.</li>
-</ul>
-<p>The shutdown works the same as in the main process,</p>
-<h2 id="glossary">Glossary</h2>
-<ul>
-<li><code>ruleset</code>: a list of <em>rules</em>. can be empty.</li>
-<li><code>rule</code>: contains some selection specification (e.g. <code>origin</code> and <code>destination</code>) and a <code>policy</code></li>
-<li><code>policy</code>: whether requests matching a rule are <em>allowed</em> or <em>blocked</em></li>
-</ul>
-<h2 id="abbreviations">Abbreviations</h2>
-<p>The following abbreviations are used</p>
-<ul>
-<li><code>RP</code>: RequestPolicy; <code>RPC</code>: RequestPolicy Continued</li>
-<li><code>Fx</code>: Firefox</li>
-<li><code>e10s</code>: Electrolysis (aka multiprocess firefox)</li>
-<li>…</li>
-</ul>
-<h2 id="aboutconfig-configuration-settings"><a href="about:config" class="uri">about:config</a> configuration settings</h2>
-<p>Here is a list of RequestPolicyContinued settings that can be edited by going to <code>about:config</code> in the address bar, along with their descriptions, defaults and possible values (TODO):</p>
-<ul>
-<li><code>extensions.requestpolicy.autoReload</code></li>
-<li><code>extensions.requestpolicy.defaultPolicy.allow</code></li>
-<li><code>extensions.requestpolicy.defaultPolicy.allowSameDomain</code></li>
-<li><code>extensions.requestpolicy.indicateBlacklistedObjects</code></li>
-<li><code>extensions.requestpolicy.indicateBlockedObjects</code></li>
-<li><code>extensions.requestpolicy.initialSetupDialogShown</code></li>
-<li><code>extensions.requestpolicy.lastAppVersion</code></li>
-<li><code>extensions.requestpolicy.lastVersion</code></li>
-<li><code>extensions.requestpolicy.log</code></li>
-<li><code>extensions.requestpolicy.log.level</code></li>
-<li><code>extensions.requestpolicy.log.types</code></li>
-<li><code>extensions.requestpolicy.menu.info.showNumRequests</code></li>
-<li><code>extensions.requestpolicy.menu.sorting</code></li>
-<li><code>extensions.requestpolicy.prefetch.dns.disableOnStartup</code></li>
-<li><code>extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall</code></li>
-<li><code>extensions.requestpolicy.prefetch.link.disableOnStartup</code></li>
-<li><code>extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall</code></li>
-<li><code>extensions.requestpolicy.privateBrowsingPermanentWhitelisting</code></li>
-<li><code>extensions.requestpolicy.startWithAllowAllEnabled</code></li>
-<li><code>extensions.requestpolicy.welcomeWindowShown</code></li>
+<li><a href="Dev-in-depth.html">in-depth documentation of some topics</a></li>
+<li><a href="Background-information-for-developers.html">Background information for developers</a></li>
 </ul>
 </body>
 </html>

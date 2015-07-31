@@ -31,16 +31,37 @@ code > span.er { color: #ff0000; font-weight: bold; }
   <link rel="stylesheet" href="./github-markdown.css">
 </head>
 <body>
+<h1 id="working-with-the-source-code">Working with the Source Code</h1>
 <p>After setting up a <a href="Setting-up-a-development-environment.html">development environment</a> you can start tinkering with the code.</p>
-<h2 id="using-the-browser-toolbox-debugging-extensions">using the Browser Toolbox (debugging extensions)</h2>
-<p>If you have no experience in developing extensions for mozilla applications, you might have a look at the <a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox">Browser Toolbox</a> and other <a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a>.</p>
-<h2 id="changing-the-version-string">changing the version string</h2>
-<p>To change the RequestPolicy version number, edit the file <code>src/install.rdf</code> and, for example, change:</p>
-<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;em:version&gt;</span>0.5.23<span class="kw">&lt;/em:version&gt;</span></code></pre>
-<p>to:</p>
-<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;em:version&gt;</span>0.5.23-yourname1<span class="kw">&lt;/em:version&gt;</span></code></pre>
-<p>Now restart Firefox (the instance running your development profile you've set up)<br />and check <code>about:addons</code> to verify that the new version number is shown there.</p>
-<h2 id="changing-minversion-and-maxversion">changing minVersion and maxVersion</h2>
-<p>A problem you could hit is that your version of Firefox is not supported by RequestPolicy (or, at least, is not supported by the particular RequestPolicy code you're starting development with). If necessary, you can force RequestPolicy to work with your version of Firefox by editing the file <code>src/install.rdf</code> and changing the values of minVersion or maxVersion.</p>
+<h2 id="building-the-addon">Building the addon</h2>
+<p>From the source code's root directory run:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span>
+<span class="co"># or</span>
+<span class="kw">make</span> xpi</code></pre>
+<p>The XPI file will be created at <code>dist/requestpolicy.xpi</code>.</p>
+<h2 id="installing-the-xpi">Installing the XPI</h2>
+<p>You can simply drag-and-drop the file into your web browser (e.g. Firefox).</p>
+<h2 id="running-firefox-and-rp-with-mozrunner">Running Firefox and RP with Mozrunner</h2>
+<p><code>mozrunner</code> is a python package that helps you run Mozilla binaries (firefox, thunderbird, seamonkey, …) in a predefined environment. Every time you run <code>mozrunner</code>, it will create a new temporary profile – it will be deleted afterwards.</p>
+<p>Usage examples:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Run Firefox Nightly</span>
+<span class="co"># -- binary path: .mozilla/software/firefox/nightly/firefox</span>
+<span class="kw">make</span> run</code></pre>
+<p>This will also automatically create or update the XPI file, if necessary. In this case the „unit testing“ XPI will be created – command: <code>make unit-testing-xpi</code>.</p>
+<h2 id="running-unit-tests">Running unit tests</h2>
+<p>Setting up an environment for unit testing is optional. You probably won't need it if you do just a few changes to the code.</p>
+<h3 id="what-is-unit-testing">What is unit testing?</h3>
+<p>Unit testing (<a href="https://en.wikipedia.org/wiki/Unit_test">wikipedia</a>) aims at ensuring that functionality that has been implemented is really working, also across different versions and also in case bigger changes to the source code are done.</p>
+<h3 id="unit-tests-for-requestpolicy">Unit tests for RequestPolicy</h3>
+<p>There are two types of unit tests: xpcshell tests and Marionette tests. There are also still some MozMill tests, but they will be converted to Marionette tests, see issue <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/641">#641</a>.</p>
+<p>Marionette (and formerly MozMill) is used to test UI functionality, whereas the xpcshell is used for tests which only need access to XPCOM.</p>
+<p>So far there are only few unit tests, so contributions are very welcome. In future any new feature should get a unit test.</p>
+<h4 id="xpshell-tests">xpshell tests</h4>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">./tests/run-xpcshell-tests.sh</span></code></pre>
+<h4 id="marionette-tests">Marionette tests</h4>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> marionette</code></pre>
+<p>Note that while the tests are running you shouldn't use keyboard/mouse at all, otherwise tests might fail erroneously.</p>
+<h4 id="mozmill-tests-obsolete">MozMill tests (obsolete)</h4>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> mozmill</code></pre>
 </body>
 </html>

@@ -1,3 +1,5 @@
+# Background information for developers
+
 The information provided on this page might be interesting for developers.
 
 ## xpcshell

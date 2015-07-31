@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./github-markdown.css">
+</head>
+<body>
+<h1 id="development-basics">Development Basics</h1>
+<h2 id="the-source-code">the source code</h2>
+<h3 id="getting-the-source-code-building-the-addon">getting the source code / building the addon</h3>
+<p>See <a href="Setting-up-a-development-environment.html"><em>Setting up a development environment</em></a> and <a href="Working-with-the-Source-Code.html"><em>Working with the Source Code</em></a>.</p>
+<h3 id="xpi-files">XPI files</h3>
+<p>For distribution, the source code is packaged into <code>.xpi</code> files. XPI files are just <code>zip</code> archives which you can extract like any other. However, if you want to work on the source code you should take the code from the repository, because the XPI's content and the code in the <code>src/</code> directory are not exactly the same.</p>
+<h2 id="addon-development-basics">addon development basics</h2>
+<h3 id="xul">XUL</h3>
+<p>RequestPolicy adds <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL">XUL</a> elements to every browser window, such as the menu button. There's a great <a href="https://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions/XUL_School">XUL Tutorial</a> on MDN.</p>
+<h3 id="xpcom">XPCOM</h3>
+<p>When developing Mozilla Add-Ons you will stumble upon <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM">XPCOM</a> components:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Creating_components">Creating XPCOM components</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Guide/Building_components_in_JavaScript">JavaScript-specific guide</a></li>
+</ul>
+<h3 id="development-tools">Development tools</h3>
+<p>There are some very useful tools for developing addons. To name some of them:</p>
+<ul>
+<li>the <a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox">Browser Toolbox</a> and other <a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a> – to debug extensions</li>
+<li>the <a href="https://addons.mozilla.org/en-US/firefox/addon/dom-inspector-6622/">DOM Inspector</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/inspect-context/">Inspect Context</a> – inspect, browse, and edit the DOM of XUL windows</li>
+</ul>
+<h2 id="source-code-basics">source code basics</h2>
+<p>The main source code lives in the <code>src/</code> directory, unit tests in <code>tests</code>.</p>
+<h3 id="programming-language">programming language</h3>
+<p>RequestPolicy is written in JavaScript. Some unit tests (Marionette) are written in Python.</p>
+<h3 id="entry-points">entry points</h3>
+<p>When the addon is installed, the files <code>install.rdf</code> and <code>chrome.manifest</code> are parsed and <code>bootstrap.js</code> is executed. More infos:</p>
+<ul>
+<li><code>install.rdf</code>: <a href="https://developer.mozilla.org/en-US/Add-ons/Install_Manifests">docs</a>. It specifies the addon's ID, name, description and version string, as well as the web browsers' <code>minVersion</code> and <code>maxVersion</code>.</li>
+<li><code>chrome.manifest</code>: <a href="https://developer.mozilla.org/en-US/docs/Chrome_Registration">docs</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Tutorial/Manifest_Files">tutorial</a>. It specifies the <code>chrome://rpcontinued/</code> URI.</li>
+<li><code>bootstrap.js</code>: <a href="https://developer.mozilla.org/en-US/docs/Extensions/bootstrap.js">docs</a></li>
+</ul>
+<p>From <code>bootstrap.js</code> RequestPolicy is started up.</p>
+<h3 id="content-policy-implementation">„Content Policy“ implementation</h3>
+<p>RequestPolicy's blocking functionality bases mostly on the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIContentPolicy"><code>nsIContentPolicy</code></a> interface. RequestPolicy implements this interface by an XPCOM component. The component's <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIContentPolicy#shouldLoad%28%29"><code>shouldLoad</code></a> function will be called for each request to decide whether or not the resource at a given location should be loaded.</p>
+<h2 id="general-topics">general topics</h2>
+<h3 id="uris">URIs</h3>
+<p>Each request has a destination URI, and often also an origin URI. For information about about URIs see <a href="http://tools.ietf.org/html/std66">STD 66</a> (Internet standard) – especially <a href="http://tools.ietf.org/html/std66#appendix-A">Appendix A</a>. There's also some information on <a href="https://en.wikipedia.org/wiki/URI_scheme#Generic_syntax">wikipedia</a>.</p>
+<p>This is the <a href="https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_Form">ABNF</a> definition of an URI:</p>
+<pre><code>scheme &quot;:&quot; hier-part [ &quot;?&quot; query ] [ &quot;#&quot; fragment ]</code></pre>
+<p>The „scheme“ often is <code>http</code> or <code>https</code>. The „hier-part“ normally is the host in the form of <code>//www.example.com</code> or <code>//127.0.0.1</code>.</p>
+<h3 id="domain-names-and-the-public-suffix-list">domain names and the „Public Suffix List“</h3>
+<p>RequestPolicy treats domain names either as full domains (e.g. <code>www.example.com</code>) or regarding their „Base Domain“ (e.g. <code>example.com</code>). The Base Domain is determined using the „Public Suffix List“ (<a href="https://en.wikipedia.org/wiki/Public_Suffix_List">wikipedia</a>, <a href="https://publicsuffix.org/">publicsuffix.org</a>). Therefore, for example, the Base Domain of <code>xyz.cloudfront.net</code> is equally <code>xyz.cloudfront.net</code>, not <code>cloudfront.net</code>.</p>
+<h3 id="security">security</h3>
+<p>Have a look at the MDN articles <a href="https://developer.mozilla.org/en-US/docs/Security_check_basics">Security check basics</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></p>
+<h2 id="glossary">Glossary</h2>
+<ul>
+<li><code>ruleset</code>: a list of <em>rules</em>. can be empty.</li>
+<li><code>rule</code>: contains some selection specification (e.g. <code>origin</code> and <code>destination</code>) and a <code>policy</code></li>
+<li><code>policy</code>: whether requests matching a rule are <em>allowed</em> or <em>blocked</em></li>
+</ul>
+<h2 id="abbreviations">Abbreviations</h2>
+<p>The following abbreviations are used</p>
+<ul>
+<li><code>RP</code>: RequestPolicy; <code>RPC</code>: RequestPolicy Continued</li>
+<li><code>Fx</code>: Firefox</li>
+<li><code>e10s</code>: Electrolysis (aka multiprocess firefox)</li>
+</ul>
+<h2 id="aboutconfig-configuration-settings"><a href="about:config" class="uri">about:config</a> configuration settings</h2>
+<p>Here is a list of RequestPolicy's settings that can be edited by going to <code>about:config</code> in the address bar, along with their descriptions, defaults and possible values (TODO):</p>
+<ul>
+<li><code>extensions.requestpolicy.autoReload</code></li>
+<li><code>extensions.requestpolicy.defaultPolicy.allow</code></li>
+<li><code>extensions.requestpolicy.defaultPolicy.allowSameDomain</code></li>
+<li><code>extensions.requestpolicy.indicateBlacklistedObjects</code></li>
+<li><code>extensions.requestpolicy.indicateBlockedObjects</code></li>
+<li><code>extensions.requestpolicy.initialSetupDialogShown</code></li>
+<li><code>extensions.requestpolicy.lastAppVersion</code></li>
+<li><code>extensions.requestpolicy.lastVersion</code></li>
+<li><code>extensions.requestpolicy.log</code></li>
+<li><code>extensions.requestpolicy.log.level</code></li>
+<li><code>extensions.requestpolicy.log.types</code></li>
+<li><code>extensions.requestpolicy.menu.info.showNumRequests</code></li>
+<li><code>extensions.requestpolicy.menu.sorting</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.privateBrowsingPermanentWhitelisting</code></li>
+<li><code>extensions.requestpolicy.startWithAllowAllEnabled</code></li>
+<li><code>extensions.requestpolicy.welcomeWindowShown</code></li>
+</ul>
+</body>
+</html>

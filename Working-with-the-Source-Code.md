@@ -1,26 +1,70 @@
+# Working with the Source Code
+
 After setting up a [development environment](Setting-up-a-development-environment) you can start tinkering with the code.
 
-## using the Browser Toolbox (debugging extensions)
+## Building the addon
 
-If you have no experience in developing extensions for mozilla applications, you might have a look at the [Browser Toolbox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox) and other [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).
+ From the source code's root directory run:
 
-## changing the version string
-
-To change the RequestPolicy version number, edit the file `src/install.rdf` and, for example, change:
-
-```xml
-<em:version>0.5.23</em:version>
+```bash
+make
+# or
+make xpi
 ```
 
-to:
+The XPI file will be created at `dist/requestpolicy.xpi`.
 
-```xml
-<em:version>0.5.23-yourname1</em:version>
+## Installing the XPI
+
+You can simply drag-and-drop the file into your web browser (e.g. Firefox).
+
+## Running Firefox and RP with Mozrunner
+
+`mozrunner` is a python package that helps you run Mozilla binaries (firefox, thunderbird, seamonkey, …) in a predefined environment. Every time you run `mozrunner`, it will create a new temporary profile – it will be deleted afterwards.
+
+Usage examples:
+
+```bash
+# Run Firefox Nightly
+# -- binary path: .mozilla/software/firefox/nightly/firefox
+make run
 ```
 
-Now restart Firefox (the instance running your development profile you've set up)
-and check `about:addons` to verify that the new version number is shown there.
+This will also automatically create or update the XPI file, if necessary. In this case the „unit testing“ XPI will be created – command: `make unit-testing-xpi`.
 
-## changing minVersion and maxVersion
 
-A problem you could hit is that your version of Firefox is not supported by RequestPolicy (or, at least, is not supported by the particular RequestPolicy code you're starting development with). If necessary, you can force RequestPolicy to work with your version of Firefox by editing the file `src/install.rdf` and changing the values of minVersion or maxVersion.
+## Running unit tests
+
+Setting up an environment for unit testing is optional. You probably won't need it if you do just a few changes to the code.
+
+### What is unit testing?
+
+Unit testing ([wikipedia](https://en.wikipedia.org/wiki/Unit_test)) aims at ensuring that functionality that has been implemented is really working, also across different versions and also in case bigger changes to the source code are done.
+
+### Unit tests for RequestPolicy
+
+There are two types of unit tests: xpcshell tests and Marionette tests. There are also still some MozMill tests, but they will be converted to Marionette tests, see issue [#641](https://github.com/RequestPolicyContinued/requestpolicy/issues/641).
+
+Marionette (and formerly MozMill) is used to test UI functionality, whereas the xpcshell is used for tests which only need access to XPCOM.
+
+So far there are only few unit tests, so contributions are very welcome. In future any new feature should get a unit test.
+
+#### xpshell tests
+
+```bash
+./tests/run-xpcshell-tests.sh
+```
+
+#### Marionette tests
+
+```bash
+make marionette
+```
+
+Note that while the tests are running you shouldn't use keyboard/mouse at all, otherwise tests might fail erroneously.
+
+#### MozMill tests (obsolete)
+
+```bash
+make mozmill
+```

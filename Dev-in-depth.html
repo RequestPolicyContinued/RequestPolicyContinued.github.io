@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="./github-markdown.css">
+</head>
+<body>
+<h1 id="detailed-documentation-of-some-topics">Detailed documentation of some topics</h1>
+<h2 id="the-environment-system">The „Environment System“</h2>
+<p><strong>TODO:</strong> Update this chapter. It's partly obsolete since commit <a href="https://github.com/RequestPolicyContinued/requestpolicy/commit/355cf5d61126262c9b22ccf3b018ee78bca6ef9d"><code>355cf5d</code></a>.</p>
+<p>RequestPolicy has a class called <code>Environment</code> which can be used from anywhere. A new environment is created via</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">let</span> env = <span class="kw">new</span> <span class="fu">Environment</span>(<span class="st">&quot;my environment&quot;</span>);</code></pre>
+<p>To each instance of <code>Environment</code>, <code>startup</code> and <code>shutdown</code> functions can be added. This means that the <code>Environment</code> class helps to manage tasks that have to be done when an environment is created or destroyed. When the Environment is about to start up, all registered startup functions will be called; same with shutdown.</p>
+<p><em>By the way</em>, it is possible to add startup and shutdown functions at any time. If a startup function is added when the Environment is already up and running, that function will be called immediately.</p>
+<p>To have some more control, there are different startup/shutdown levels: <code>ESSENTIAL</code>, <code>BACKEND</code>, <code>INTERFACE</code> and <code>UI</code>. To know for what each of them is used, please refer to the code.</p>
+<h3 id="environment-managers">Environment Managers</h3>
+<p><code>EnvironmentManager</code> is a JavaScript module which – as the name says – manages environments. Each <code>Environment</code> imports the Environment Manager and registers itself on the Environment's startup. Similarly, the Environment <em>unregisters</em> itself when it shuts down. Note that because of the nature of JavaScript modules, there will be one Environment Manager for each process.</p>
+<p><code>EnvironmentManager</code> enables to shut down all registered Environments at once. This is needed when the addon gets disabled (RP is a <a href="https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions">bootstrapped extension</a>). More specifically, the main process' Environment Manager's <code>startup</code> and <code>shutdown</code> functions are called by <code>bootstrap.js</code>. The child Environment Managers on the other hand will listen to the shutdown <strong>message</strong> (see <a href="https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox/The_message_manager">MessageManager</a>).</p>
+<h3 id="startup-and-shutdown">Startup and Shutdown</h3>
+<p>The startup sequence is as follows:</p>
+<ul>
+<li>The <code>startup</code> function in <code>bootstrap.js</code> gets called by the browser</li>
+<li><code>bootstrap.js</code> calls <code>Environment Manager.startup()</code></li>
+<li>The Environment Manager …</li>
+<li>does some <strong>essential tasks</strong> which are necessary for bootstrapped extensions</li>
+<li><strong>loads main modules</strong> which again load more modules. Any of those loaded modules might add startup functions to the Process Environment.</li>
+<li>starts up the Process Environment. No other Environments are started up explicilty, they have to be started up elsewhere.</li>
+</ul>
+<p>The shutdown sequence is quite similar:</p>
+<ul>
+<li>The <code>shutdown</code> function in <code>bootstrap.js</code> gets called by the browser</li>
+<li><code>bootstrap.js</code> calls <code>Environment Manager.shutdown()</code>. This is the main process' Environment Manager, as <code>bootsrap.js</code> is in the main process.</li>
+<li>The Environment Manager tells all Environments to shut down.</li>
+</ul>
+<h3 id="special-environments">Special environments</h3>
+<h4 id="process-environments">Process Environments</h4>
+<p>Many modules define startup and shutdown functions. Most modules attach those functions to the <em>Process Environment</em>. That's a small module which simply creates a new Environment once it's called.</p>
+<h4 id="frame-script-environments">Frame Script Environments</h4>
+<p>Frame scripts are needed to support Electrolysis (abbr. e10s; codename for <a href="https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox">Multiprocess Firefox</a>). RequestPolicy loads a frame script into each tab of each browser window, regardless of whether Electrolysis is enabled or not.</p>
+<p>Special attention needs to be given to the fact that even when Electrolysis is enabled there might still be tabs which are in the <em>main</em> process. So if a new Environment is created in the framescript's scope, it will be managed by either the main process' or the child process' <code>EnvironmentManager</code>. However, the frame script will create its own environment only if it's in the main process; framescripts in child processes can use the Process Environment. The reason is that also the framescript imports some JavaScript modules, and those modules might add startup functions to the Process Environment as well. This way the frame script needs to manage only one instead of two Environments in the child process.</p>
+<p>So the summary of the framescript's startup process is:</p>
+<ul>
+<li>Import the Environment Manager</li>
+<li>determine the FrameScript Environment</li>
+<li>child process: use Process Environment</li>
+<li>parent process: create a new Environment</li>
+<li>call the Environment Manager's <code>registerFramescript()</code> function. The Environment Manager will then listen to the &quot;shutdown&quot; message, which will be sent from the main process.</li>
+</ul>
+<p>The shutdown works the same as in the main process,</p>
+</body>
+</html>

@@ -1,6 +1,9 @@
 s/](Working-with-the-Source-Code)/](Working-with-the-Source-Code.html)/g
 s/](About)/](About.html)/g
 s/](Dev)/](Dev.html)/g
+s/](Development-Basics)/](Development-Basics.html)/g
+s/](Dev-in-depth)/](Dev-in-depth.html)/g
+s/](Background-information-for-developers)/](Background-information-for-developers.html)/g
 s/](Setting-up-a-development-environment)/](Setting-up-a-development-environment.html)/g
 s/](Security)/](Security.html)/g
 s/](Quickstart)/](Quickstart.html)/g
