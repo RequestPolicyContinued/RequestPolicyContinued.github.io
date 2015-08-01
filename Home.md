@@ -26,7 +26,7 @@
 
 **Cross-site requests** are requests that your browser is told to make by a website you are visiting to a completely different website.
 
-#### ![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/flag.png) What does RequestPolicy Continued do?
+#### ![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/flag-16px.png) What does RequestPolicy Continued do?
 
 RequestPolicy Continued allows you to block all cross-site requests, and only allow specific ones (**whitelisting**), either manually, or by subscribing to premade policies ([subscriptions](#Setting-up---subscriptions)) maintained by others. For easier usage, you can also keep allowing cross-site requests, but block some by manually **blacklisting** them, or by subscribing to blacklists maintained by others.
 
