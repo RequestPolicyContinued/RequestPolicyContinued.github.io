@@ -31,12 +31,11 @@ The command will create a directory called `requestpolicy`.
 You will need:
 
 * [GNU Make](https://www.gnu.org/software/make/)
-* npm (package manager)
-* [preprocessor](https://www.npmjs.com/package/preprocessor) (npm package)
+* [Zip](http://www.info-zip.org/Zip.html)
+* [`preprocess.py`](https://code.google.com/p/preprocess/)
 
 ```bash
-sudo apt-get install make npm
-sudo npm install -g preprocessor
+sudo apt-get install make zip preprocess
 ```
 
 To build the XPI run
