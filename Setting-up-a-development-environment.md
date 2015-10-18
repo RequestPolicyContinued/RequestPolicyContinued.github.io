@@ -101,9 +101,9 @@ Run all tests:
 ./tests/run-xpcshell-tests.sh
 ```
 
-### Marionette and MozMill
+### Marionette
 
-For both Marionette and MozMill tests you currently need to manually set up a Web Server (port 80) with PHP. The web server's root directory has to be `test/content/`.
+To run Marionette tests you currently need to manually set up a Web Server (port 80), including support for PHP. The web server's root directory has to be `test/content/`.
 
 Besides the Web Server, you need to create aliases for the Web Server. To do that, add the following new line to your `/etc/hosts` file:
 
@@ -113,13 +113,7 @@ Besides the Web Server, you need to create aliases for the Web Server. To do tha
 
 Not all of those domains are used at the moment, but they will, so add them all. By the way, `.test` is a [reserved TLD](https://en.wikipedia.org/wiki/.test).
 
-### Marionette tests
-
-TODO
-
-### MozMill tests
-
-You need:
+Now you need:
 
 * `virtualenv`
 
@@ -127,17 +121,13 @@ You need:
 sudo apt-get install python-virtualenv
 ```
 
-* the `mozmill-tests` repository
-
-Instructions at [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Mozmill_tests#Installing_Mozmill). Put the `mozmill-tests` directory into `${rp_root_dir}/.mozilla/`.
-
-Run all mozmill tests:
+Run all marionette tests:
 
 ```bash
-make mozmill
+make marionette
 ```
 
-This will automatically download the python packages into a virtualenv directory. Also, in the `mozmill-tests` folder, some symbolic links will be created.
+This will automatically download the python packages into a virtualenv directory.
 
 
 ---
