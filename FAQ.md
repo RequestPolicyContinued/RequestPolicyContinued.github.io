@@ -78,11 +78,20 @@ More generally, a browser fingerprinting risk exists for users of any extension 
 
 #### Is there a RequestPolicy for Chrome?
 
-Not yet. However you can use https://github.com/gorhill/uMatrix which offers similar functionality.
+[uBlock](https://github.com/gorhill/uBlock) or [uMatrix](https://github.com/gorhill/uMatrix) offer similar functionality.
 
 
+#### Using uBlock like RequestPolicy
 
-#### Is RequestPolicy an alternative or competitor to NoScript?
+If you want to use uBlock in the way RequestPolicy works, you should block anything third-party and then set a **`noop` (gray)** rule on any domain you want to allow. Use `noop` instead of `allow` so that uBlock's static rules/lists still apply. Click the padlock to make the rules permanent.
+
+![](https://cloud.githubusercontent.com/assets/3950390/11353760/68a6566c-9246-11e5-99b6-030f7e1205c6.png)
+
+See [issue #692](https://github.com/RequestPolicyContinued/requestpolicy/issues/692#issuecomment-160327720).
+
+#### RequestPolicy and NoScript
+
+>Is RequestPolicy an alternative or competitor to NoScript?
 
 No! :) NoScript is a tool that gives you a default deny policy for JavaScript, Java, Flash and other plugins. NoScript allows you to whitelist scripts and objects from domains you trust.
 
