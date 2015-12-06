@@ -9,23 +9,23 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta10.2</em:version>
+            <em:version>1.0.beta11pre2</em:version>
             <!-- Firefox -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-                <em:minVersion>16.0</em:minVersion>
-                <em:maxVersion>44.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta10.2/requestpolicy-1.0.beta10.2.xpi</em:updateLink>
+                <em:minVersion>36.0</em:minVersion>
+                <em:maxVersion>45.0a1</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
             <!-- SeaMonkey -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-                <em:minVersion>2.13</em:minVersion>
-                <em:maxVersion>2.38.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta10.2/requestpolicy-1.0.beta10.2.xpi</em:updateLink>
+                <em:minVersion>2.33</em:minVersion>
+                <em:maxVersion>2.39.*</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
           </RDF:Description>
@@ -44,23 +44,23 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta10.2</em:version>
+            <em:version>1.0.beta11pre2</em:version>
             <!-- Firefox -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-                <em:minVersion>16.0</em:minVersion>
-                <em:maxVersion>44.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta10.2/requestpolicy-1.0.beta10.2.xpi</em:updateLink>
+                <em:minVersion>36.0</em:minVersion>
+                <em:maxVersion>45.0a1</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
             <!-- SeaMonkey -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-                <em:minVersion>2.13</em:minVersion>
-                <em:maxVersion>2.38.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta10.2/requestpolicy-1.0.beta10.2.xpi</em:updateLink>
+                <em:minVersion>2.33</em:minVersion>
+                <em:maxVersion>2.39.*</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
           </RDF:Description>
