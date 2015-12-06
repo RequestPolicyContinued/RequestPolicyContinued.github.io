@@ -60,8 +60,15 @@
 <hr />
 <h3 id="other-browser-addons">Other browser addons</h3>
 <h4 id="is-there-a-requestpolicy-for-chrome">Is there a RequestPolicy for Chrome?</h4>
-<p>Not yet. However you can use <a href="https://github.com/gorhill/uMatrix" class="uri">https://github.com/gorhill/uMatrix</a> which offers similar functionality.</p>
-<h4 id="is-requestpolicy-an-alternative-or-competitor-to-noscript">Is RequestPolicy an alternative or competitor to NoScript?</h4>
+<p><a href="https://github.com/gorhill/uBlock">uBlock</a> or <a href="https://github.com/gorhill/uMatrix">uMatrix</a> offer similar functionality.</p>
+<h4 id="using-ublock-like-requestpolicy">Using uBlock like RequestPolicy</h4>
+<p>If you want to use uBlock in the way RequestPolicy works, you should block anything third-party and then set a <strong><code>noop</code> (gray)</strong> rule on any domain you want to allow. Use <code>noop</code> instead of <code>allow</code> so that uBlock's static rules/lists still apply. Click the padlock to make the rules permanent.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/3950390/11353760/68a6566c-9246-11e5-99b6-030f7e1205c6.png" /></p>
+<p>See <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/692#issuecomment-160327720">issue #692</a>.</p>
+<h4 id="requestpolicy-and-noscript">RequestPolicy and NoScript</h4>
+<blockquote>
+<p>Is RequestPolicy an alternative or competitor to NoScript?</p>
+</blockquote>
 <p>No! :) NoScript is a tool that gives you a default deny policy for JavaScript, Java, Flash and other plugins. NoScript allows you to whitelist scripts and objects from domains you trust.</p>
 <p>RequestPolicy is a tool that gives you a default deny policy for cross-site requests. RequestPolicy allows you to whitelist cross-site requests you trust.</p>
 <p>RequestPolicy will protect you from various attacks that NoScript will not (such as CSRF attacks, though there some special cases that NoScript protects against) and will give you greater privacy while browsing.</p>
