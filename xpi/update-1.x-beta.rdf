@@ -9,25 +9,38 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta11pre2</em:version>
+            <em:version>1.0.beta11pre3</em:version>
+
             <!-- Firefox -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-                <em:minVersion>36.0</em:minVersion>
-                <em:maxVersion>45.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
+                <em:minVersion>24.0</em:minVersion>
+                <em:maxVersion>46.0a1</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
+
             <!-- SeaMonkey -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-                <em:minVersion>2.33</em:minVersion>
+                <em:minVersion>2.21</em:minVersion>
                 <em:maxVersion>2.39.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
+
+            <!-- Pale Moon -->
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+                <em:minVersion>25.0</em:minVersion>
+                <em:maxVersion>25.*</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
+              </RDF:Description>
+            </em:targetApplication>
+
           </RDF:Description>
         </RDF:li>
 
@@ -44,25 +57,38 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta11pre2</em:version>
+            <em:version>1.0.beta11pre3</em:version>
+
             <!-- Firefox -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-                <em:minVersion>36.0</em:minVersion>
-                <em:maxVersion>45.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
+                <em:minVersion>24.0</em:minVersion>
+                <em:maxVersion>46.0a1</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
+
             <!-- SeaMonkey -->
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-                <em:minVersion>2.33</em:minVersion>
+                <em:minVersion>2.21</em:minVersion>
                 <em:maxVersion>2.39.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi</em:updateLink>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
+
+            <!-- Pale Moon -->
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+                <em:minVersion>25.0</em:minVersion>
+                <em:maxVersion>25.*</em:maxVersion>
+                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi</em:updateLink>
+              </RDF:Description>
+            </em:targetApplication>
+
           </RDF:Description>
         </RDF:li>
 

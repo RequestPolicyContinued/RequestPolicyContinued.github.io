@@ -9,7 +9,7 @@
 <html>
 <table>
 <tr>
-	<td><a href="https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre2/requestpolicy-1.0.beta11pre2.xpi"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/add-to-firefox.png" /></a></td>
+	<td><a href="https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre3/requestpolicy-1.0.beta11pre3.xpi"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/add-to-firefox.png" /></a></td>
 	<td><p><b>Beta release</b><br/>addon for Mozilla Firefox - actively developed - due to some compatibility issues some users might not want to upgrade yet</p></td>
 </tr>
 <tr>
