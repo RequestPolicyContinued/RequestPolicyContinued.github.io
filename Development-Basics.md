@@ -105,6 +105,8 @@ The following abbreviations are used
 Here is a list of RequestPolicy's settings that can be edited by going to `about:config` in the address bar, along with their descriptions, defaults and possible values (TODO):
 
  * `extensions.requestpolicy.autoReload`
+ * `extensions.requestpolicy.contextMenu`
+   * Boolean; if RequestPolicy should put an entry in the content-area context menu
  * `extensions.requestpolicy.defaultPolicy.allow`
  * `extensions.requestpolicy.defaultPolicy.allowSameDomain`
  * `extensions.requestpolicy.indicateBlacklistedObjects`
