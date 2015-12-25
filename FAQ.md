@@ -26,7 +26,7 @@ It's important to understand that RequestPolicy can only stop requests that the 
 
 #### Javascript-based attacks
 
-In addition to disallowing these plugins by default, there are also plenty of security reasons to disallow JavaScript on websites you visit unless you are sure you want to allow it. To help you control when plugins and JavaScript run on website you visit, we suggest using the NoScript Firefox extension. Using NoScript in addition to RequestPolicy will give you a highly secure browser. 
+In addition to disallowing these plugins by default, there are also plenty of security reasons to disallow JavaScript on websites you visit unless you are sure you want to allow it. To help you control when plugins and JavaScript run on website you visit, we suggest using the NoScript Firefox extension. Using NoScript in addition to RequestPolicy will give you a highly secure browser.
 
 #### HTTP Referer headers
 
@@ -157,7 +157,17 @@ If disabling all addons didn't help, you can do the following:
 
 ### How do I change the keyboard shortcut to open the menu?
 
-Go to `about:config` from you address bar, then edit the value for these preferences:
+Keyboard shortcuts can be disabled, or changed. Go to `about:config` from you address bar, then edit the value for these preferences:
 
     extensions.requestpolicy.keyboardShortcuts.openMenu.enabled
     extensions.requestpolicy.keyboardShortcuts.openMenu.combo
+
+To change the keyboard combination, set the `combo` pref. If the pref's value is `"default"`, the default combination is used. Otherwise the format is `"[modifiers] [key]"`. Modifiers must be separated by spaces. The `[key]` must be a single letter. There may be modifiers of any number, even zero. Available modifiers:
+
+* __shift__: The Shift key.
+* __alt__: The Alt key. On the Macintosh, this is the Option key. On Macintosh this can only be used in conjunction with another modifier, since Alt-Letter combinations are reserved for entering special characters in text.
+* __meta__: The Meta key. On the Macintosh, this is the Command key.
+* __control__: The Control key.
+* __accel__: The key used for keyboard shortcuts on the user's platform, which is Control on Windows and Linux, and Command on Mac. Usually, this would be the value you would use.
+
+If any problems should occur, you should see them in the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console).

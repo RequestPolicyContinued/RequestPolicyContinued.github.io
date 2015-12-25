@@ -113,7 +113,7 @@ Here is a list of RequestPolicy's settings that can be edited by going to `about
  * `extensions.requestpolicy.indicateBlockedObjects`
  * `extensions.requestpolicy.initialSetupDialogShown`
  * `extensions.requestpolicy.keyboardShortcuts.openMenu.combo`
-   * The keyboard combination for opening the RequestPolicy menu. See below for details.
+   * The keyboard combination for opening the RequestPolicy menu. See the FAQ for details.
  * `extensions.requestpolicy.keyboardShortcuts.openMenu.enabled`
    * Set to `false` to disable the keyboard shortcut
  * `extensions.requestpolicy.lastAppVersion`
@@ -130,15 +130,3 @@ Here is a list of RequestPolicy's settings that can be edited by going to `about
  * `extensions.requestpolicy.privateBrowsingPermanentWhitelisting`
  * `extensions.requestpolicy.startWithAllowAllEnabled`
  * `extensions.requestpolicy.welcomeWindowShown`
-
-### Keyboard Shortcuts
-
-Keyboard shortcuts can be disabled, or changed. To change the keyboard combination, set the corresponding preference. If the pref's value is `"default"`, the default combination is used. Otherwise the format is `"[modifiers] [key]"`. Modifiers must be separated by spaces. The `[key]` must be a single letter. There may be modifiers of any number, even zero. Available modifiers:
-
-* __shift__: The Shift key.
-* __alt__: The Alt key. On the Macintosh, this is the Option key. On Macintosh this can only be used in conjunction with another modifier, since Alt-Letter combinations are reserved for entering special characters in text.
-* __meta__: The Meta key. On the Macintosh, this is the Command key.
-* __control__: The Control key.
-* __accel__: The key used for keyboard shortcuts on the user's platform, which is Control on Windows and Linux, and Command on Mac. Usually, this would be the value you would use.
-
-If any problems should occur, you should see them in the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console).
