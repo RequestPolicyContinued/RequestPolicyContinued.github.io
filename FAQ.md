@@ -174,7 +174,7 @@ If any problems should occur, you should see them in the [Browser Console](https
 
 ---------------------------------------------
 
-## What are RequestPolicy's configuration settings on `about:config`?
+### What are RequestPolicy's configuration settings on `about:config`?
 
 Here is a list of RequestPolicy's settings that can be edited by going to `about:config` in the address bar, along with their descriptions and possible values (TODO):
 
