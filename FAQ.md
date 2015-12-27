@@ -171,3 +171,36 @@ To change the keyboard combination, set the `combo` pref. If the pref's value is
 * __accel__: The key used for keyboard shortcuts on the user's platform, which is Control on Windows and Linux, and Command on Mac. Usually, this would be the value you would use.
 
 If any problems should occur, you should see them in the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console).
+
+---------------------------------------------
+
+## What are RequestPolicy's configuration settings on `about:config`?
+
+Here is a list of RequestPolicy's settings that can be edited by going to `about:config` in the address bar, along with their descriptions and possible values (TODO):
+
+ * `extensions.requestpolicy.autoReload`
+ * `extensions.requestpolicy.contextMenu`
+   * Boolean; if RequestPolicy should put an entry in the content-area context menu
+ * `extensions.requestpolicy.defaultPolicy.allow`
+ * `extensions.requestpolicy.defaultPolicy.allowSameDomain`
+ * `extensions.requestpolicy.indicateBlacklistedObjects`
+ * `extensions.requestpolicy.indicateBlockedObjects`
+ * `extensions.requestpolicy.initialSetupDialogShown`
+ * `extensions.requestpolicy.keyboardShortcuts.openMenu.combo`
+   * The keyboard combination for opening the RequestPolicy menu. See the FAQ for details.
+ * `extensions.requestpolicy.keyboardShortcuts.openMenu.enabled`
+   * Set to `false` to disable the keyboard shortcut
+ * `extensions.requestpolicy.lastAppVersion`
+ * `extensions.requestpolicy.lastVersion`
+ * `extensions.requestpolicy.log`
+ * `extensions.requestpolicy.log.level`
+ * `extensions.requestpolicy.log.types`
+ * `extensions.requestpolicy.menu.info.showNumRequests`
+ * `extensions.requestpolicy.menu.sorting`
+ * `extensions.requestpolicy.prefetch.dns.disableOnStartup`
+ * `extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall`
+ * `extensions.requestpolicy.prefetch.link.disableOnStartup`
+ * `extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall`
+ * `extensions.requestpolicy.privateBrowsingPermanentWhitelisting`
+ * `extensions.requestpolicy.startWithAllowAllEnabled`
+ * `extensions.requestpolicy.welcomeWindowShown`
