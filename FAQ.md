@@ -12,6 +12,7 @@
 - [How to deal with ajax.googleapis.com?](#how-to-deal-with-ajaxgoogleapiscom)
 - [How to find relevant information about a bug](#how-to-find-relevant-information-about-a-bug)
 - [How do I change the keyboard shortcut to open the menu?](#how-do-i-change-the-keyboard-shortcut-to-open-the-menu)
+- [What are RequestPolicy's configuration settings on `about:config`?](#what-are-requestpolicys-configuration-settings-on-aboutconfig)
 
 <!-- /MarkdownTOC -->
 
