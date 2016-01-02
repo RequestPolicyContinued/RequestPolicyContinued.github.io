@@ -24,6 +24,8 @@
 <li><a href="#the-flag-icon-is-red-what-is-wrong">The flag icon is red! What is wrong?</a></li>
 <li><a href="#how-to-deal-with-ajaxgoogleapiscom">How to deal with ajax.googleapis.com?</a></li>
 <li><a href="#how-to-find-relevant-information-about-a-bug">How to find relevant information about a bug</a></li>
+<li><a href="#how-do-i-change-the-keyboard-shortcut-to-open-the-menu">How do I change the keyboard shortcut to open the menu?</a></li>
+<li><a href="#what-are-requestpolicys-configuration-settings-on-aboutconfig">What are RequestPolicy's configuration settings on <code>about:config</code>?</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <hr />
@@ -112,6 +114,51 @@
 <ul>
 <li>Check firefox' browser console</li>
 <li><a href="Setting-up-a-development-environment.html#enable-logging">Enable RPC's logging</a> and start Fx from the terminal</li>
+</ul>
+<hr />
+<h3 id="how-do-i-change-the-keyboard-shortcut-to-open-the-menu">How do I change the keyboard shortcut to open the menu?</h3>
+<p>Keyboard shortcuts can be disabled, or changed. Go to <code>about:config</code> from you address bar, then edit the value for these preferences:</p>
+<pre><code>extensions.requestpolicy.keyboardShortcuts.openMenu.enabled
+extensions.requestpolicy.keyboardShortcuts.openMenu.combo</code></pre>
+<p>To change the keyboard combination, set the <code>combo</code> pref. If the pref's value is <code>&quot;default&quot;</code>, the default combination is used. Otherwise the format is <code>&quot;[modifiers] [key]&quot;</code>. Modifiers must be separated by spaces. The <code>[key]</code> must be a single letter. There may be modifiers of any number, even zero. Available modifiers:</p>
+<ul>
+<li><strong>shift</strong>: The Shift key.</li>
+<li><strong>alt</strong>: The Alt key. On the Macintosh, this is the Option key. On Macintosh this can only be used in conjunction with another modifier, since Alt-Letter combinations are reserved for entering special characters in text.</li>
+<li><strong>meta</strong>: The Meta key. On the Macintosh, this is the Command key.</li>
+<li><strong>control</strong>: The Control key.</li>
+<li><strong>accel</strong>: The key used for keyboard shortcuts on the user's platform, which is Control on Windows and Linux, and Command on Mac. Usually, this would be the value you would use.</li>
+</ul>
+<p>If any problems should occur, you should see them in the <a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Console">Browser Console</a>.</p>
+<hr />
+<h3 id="what-are-requestpolicys-configuration-settings-on-aboutconfig">What are RequestPolicy's configuration settings on <code>about:config</code>?</h3>
+<p>Here is a list of RequestPolicy's settings that can be edited by going to <code>about:config</code> in the address bar, along with their descriptions and possible values (TODO):</p>
+<ul>
+<li><code>extensions.requestpolicy.autoReload</code></li>
+<li><code>extensions.requestpolicy.contextMenu</code></li>
+<li>Boolean; if RequestPolicy should put an entry in the content-area context menu</li>
+<li><code>extensions.requestpolicy.defaultPolicy.allow</code></li>
+<li><code>extensions.requestpolicy.defaultPolicy.allowSameDomain</code></li>
+<li><code>extensions.requestpolicy.indicateBlacklistedObjects</code></li>
+<li><code>extensions.requestpolicy.indicateBlockedObjects</code></li>
+<li><code>extensions.requestpolicy.initialSetupDialogShown</code></li>
+<li><code>extensions.requestpolicy.keyboardShortcuts.openMenu.combo</code></li>
+<li>The keyboard combination for opening the RequestPolicy menu. See the FAQ for details.</li>
+<li><code>extensions.requestpolicy.keyboardShortcuts.openMenu.enabled</code></li>
+<li>Set to <code>false</code> to disable the keyboard shortcut</li>
+<li><code>extensions.requestpolicy.lastAppVersion</code></li>
+<li><code>extensions.requestpolicy.lastVersion</code></li>
+<li><code>extensions.requestpolicy.log</code></li>
+<li><code>extensions.requestpolicy.log.level</code></li>
+<li><code>extensions.requestpolicy.log.types</code></li>
+<li><code>extensions.requestpolicy.menu.info.showNumRequests</code></li>
+<li><code>extensions.requestpolicy.menu.sorting</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.dns.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.disableOnStartup</code></li>
+<li><code>extensions.requestpolicy.prefetch.link.restoreDefaultOnUninstall</code></li>
+<li><code>extensions.requestpolicy.privateBrowsingPermanentWhitelisting</code></li>
+<li><code>extensions.requestpolicy.startWithAllowAllEnabled</code></li>
+<li><code>extensions.requestpolicy.welcomeWindowShown</code></li>
 </ul>
 </body>
 </html>
