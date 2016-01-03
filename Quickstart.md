@@ -87,8 +87,13 @@ If you **click on one of the blocked destinations**, you are given options to al
 
 <img style='width: 90%' src='https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/menu-full.png'/>
 
+Click on one of these destinations (eg. `example.net`). From there, the possible actions are displayed in the right pane.
 
-Look in the menu for blocked destinations that have a **large number of blocked requests** (number on the right of the domain name). This might indicate that the page tries to load a lot of content from this domain, but RequestPolicy blocks it. Click on one of these destinations (eg. `example.net`). From there, the possible actions are displayed in the right pane.
+
+|    !      | At any moment, you can Middle-click on any domain in the list to request it's reputation/activity information from the third-party [MyWot](https://www.mywot.com/en/scorecard) service. |
+|-----------|-----------------------------------|
+|    !      | Look in the menu for blocked destinations that have a **large number of blocked requests** (number on the right of the domain name). This might indicate that the page tries to load a lot of content from this domain, but RequestPolicy blocks it.|
+|           |                                  |
 
 
 **Allow requests from example.com to another.net:** Use this if you want to allow pages from `example.com` to use content hosted on `another.net`.
