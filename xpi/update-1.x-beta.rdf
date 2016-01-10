@@ -1,6 +1,11 @@
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
+  <!--
+    This is the old "update.rdf" file. The new file can be found at
+    https://github.com/RequestPolicyContinued/updates
+  -->
+
   <!-- old extension ID -->
   <RDF:Description about="urn:mozilla:extension:requestpolicy@requestpolicy.com">
     <em:updates>
@@ -9,7 +14,7 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta11pre4</em:version>
+            <em:version>1.0.beta11pre4.1414.r04358f3</em:version>
 
             <!-- Firefox -->
             <em:targetApplication>
@@ -17,7 +22,7 @@
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>24.0</em:minVersion>
                 <em:maxVersion>46.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
@@ -27,7 +32,7 @@
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
                 <em:minVersion>2.21</em:minVersion>
                 <em:maxVersion>2.39.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
@@ -37,7 +42,7 @@
                 <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
                 <em:minVersion>25.0</em:minVersion>
                 <em:maxVersion>25.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
@@ -57,7 +62,7 @@
         <!-- Each li is a different version of the same add-on -->
         <RDF:li>
           <RDF:Description>
-            <em:version>1.0.beta11pre4</em:version>
+            <em:version>1.0.beta11pre4.1414.r04358f3</em:version>
 
             <!-- Firefox -->
             <em:targetApplication>
@@ -65,7 +70,7 @@
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>24.0</em:minVersion>
                 <em:maxVersion>46.0a1</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
@@ -75,7 +80,7 @@
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
                 <em:minVersion>2.21</em:minVersion>
                 <em:maxVersion>2.39.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
@@ -85,7 +90,7 @@
                 <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
                 <em:minVersion>25.0</em:minVersion>
                 <em:maxVersion>25.*</em:maxVersion>
-                <em:updateLink>https://github.com/RequestPolicyContinued/requestpolicy/releases/download/v1.0.beta11pre4/requestpolicy-1.0.beta11pre4.xpi</em:updateLink>
+                <em:updateLink>https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi</em:updateLink>
               </RDF:Description>
             </em:targetApplication>
 
