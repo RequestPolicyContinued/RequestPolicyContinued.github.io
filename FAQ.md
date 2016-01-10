@@ -44,7 +44,7 @@ Request that are blocked include:
 
    * **Content of the current page that is from a different site:** Various tags in an HTML page tell the browser that more content is needed to display the current page. Normally, the browser immediately makes requests to third-party sites to obtain this content. The content can include images, JavaScript files, style sheet files, and many others.
    * **Redirections** from the current site to a different site: Redirects tell your browser to load an entirely different website address than the one you are on or requested. Redirections can be caused by JavaScript, META refresh tags, and on headers.
-   * Content a page tells your browser to "prefetch": Some browsers, such as Firefox, allow any webpage to tell your browser to load other pages in the background. This is intended to allow a website to improve your browsing experience by guessing which pages you are likely to visit next so that those pages will load faster when you visit them. In Firefox 3.1, DNS prefetching was also added. DNS prefetching is where your browser tries to speed up future requests by resolving the IP address of every link on webpages you visit (just in case you decide to click on them). [Read more about prefetching...](What-is-prefetching)
+   * **Prefetching:** There are various types of prefetching, all of which aim at speeding up page loads. RequestPolicy by default disables those prefetching techniques completely. [Read about prefetching techniques](What-is-prefetching).
 
 _Note that **OCSP queries and CRL updates** are not blocked. This means that RequestPolicy will not interfere with your browser's attempts to determine whether SSL certificates have been revoked._
 
