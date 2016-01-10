@@ -11,4 +11,4 @@ An example of web page prefetching is when searching with Google. Google search 
 
 Unfortunately, with the way prefetching is currently implemented in Firefox, it is not possible to selectively block prefetch requests in the same way that other cross-site requests can be blocked. The only option is to disable prefetching completely.
 
-For more information on link prefetching in Mozilla browsers (such as Firefox), see the Mozilla link prefetching FAQ and Pat McManus' blog post.
+For more information on link prefetching in Mozilla browsers (such as Firefox), see the [Mozilla link prefetching FAQ](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ) and [Pat McManus' blog post](http://bitsup.blogspot.de/2008/11/dns-prefetching-for-firefox.html).
