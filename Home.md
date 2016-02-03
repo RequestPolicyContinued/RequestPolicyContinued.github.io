@@ -13,7 +13,7 @@
 	<td><p><b>Beta release</b><br/>addon for Mozilla Firefox - actively developed - due to some compatibility issues some users might not want to upgrade yet</p></td>
 </tr>
 <tr>
-	<td><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/download.png" /></a></td>
+	<td><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-legacy/"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/download.png" /></a></td>
 	<td><p><b>old 0.5 release</b><br/>unmaintained - old version repackaged for current Firefox</p></td>
 </tr>
 </table>
@@ -59,9 +59,9 @@ See the [FAQ](FAQ)
 ---------------------------------
 
 #### ![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/about.png) About RequestPolicyContinued
-RequestPolicy Continued is a continuation of the [original project](https://requestpolicy.com/) from [Justin Samuel](https://github.com/jsamuel) by volunteers. It is based on the 1.0 beta version of RequestPolicy, which is a major rewrite and refactoring of the [0.5 version still available on Addons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/). Currently we aim at releasing our first stable version – 1.0 – but there is still much to do. If you want to be informed about this milestone, you could subscribe to [this issue](https://github.com/RequestPolicyContinued/requestpolicy/issues/446). If you're interested, you can find a list of all open issues for version 1.0 [here](https://github.com/RequestPolicyContinued/requestpolicy/milestones/1.0).
+RequestPolicy Continued is a continuation of the [original project](https://requestpolicy.com/) from [Justin Samuel](https://github.com/jsamuel) by volunteers. It is based on the 1.0 beta version of RequestPolicy, which is a major rewrite and refactoring of the [0.5 version still available on Addons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-legacy/). Currently we aim at releasing our first stable version – 1.0 – but there is still much to do. If you want to be informed about this milestone, you could subscribe to [this issue](https://github.com/RequestPolicyContinued/requestpolicy/issues/446). If you're interested, you can find a list of all open issues for version 1.0 [here](https://github.com/RequestPolicyContinued/requestpolicy/milestones/1.0).
 
-_![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/warning.png) There are still some [compatibility issues](https://github.com/RequestPolicyContinued/requestpolicy/issues?q=is%3Aopen+is%3Aissue+label%3A%221.0+vs+0.5%22) when upgrading from the older 0.5 version. You can downgrade at any time though. A Firefox 38+ compatible version of RequestPolicy 0.5 is [available at addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/)_
+_![](https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/warning.png) There are still some [compatibility issues](https://github.com/RequestPolicyContinued/requestpolicy/issues?q=is%3Aopen+is%3Aissue+label%3A%221.0+vs+0.5%22) when upgrading from the older 0.5 version. You can downgrade at any time though. A Firefox 38+ compatible version of RequestPolicy 0.5 is [available at addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-legacy/)_
 
 
 
