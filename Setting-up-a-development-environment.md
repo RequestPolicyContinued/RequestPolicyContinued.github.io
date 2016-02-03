@@ -32,7 +32,7 @@ You will need:
 
 * [GNU Make](https://www.gnu.org/software/make/)
 * [Zip](http://www.info-zip.org/Zip.html)
-* [`preprocess.py`](https://code.google.com/p/preprocess/)
+* [`preprocess.py`](https://github.com/trentm/preprocess)
 
 ```bash
 sudo apt-get install make zip preprocess
