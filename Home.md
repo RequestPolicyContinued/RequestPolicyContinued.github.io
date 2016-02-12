@@ -9,7 +9,7 @@
 <html>
 <table>
 <tr>
-	<td><a href="https://sslsites.de/requestpolicy.256k.de/requestpolicy-nightly.xpi"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/add-to-firefox.png" /></a></td>
+	<td><a href="https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/"><img src="https://raw.githubusercontent.com/wiki/RequestPolicyContinued/requestpolicy/media/add-to-firefox.png" /></a></td>
 	<td><p><b>Beta release</b><br/>addon for Mozilla Firefox - actively developed - due to some compatibility issues some users might not want to upgrade yet</p></td>
 </tr>
 <tr>
