@@ -17,6 +17,7 @@ for file in $mdfiles; do
     pandoc --from markdown_github \
     --write html5 \
     --standalone \
+    --include-in-header="$(dirname $0)/header.html" \
     --css "$(dirname $0)/github-markdown.css" \
     --output "$outfile"
 done
