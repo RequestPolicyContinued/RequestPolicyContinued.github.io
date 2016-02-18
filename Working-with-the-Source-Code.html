@@ -6,47 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <style type="text/css">
+div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
   <link rel="stylesheet" href="./github-markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
 <h1 id="working-with-the-source-code">Working with the Source Code</h1>
 <p>After setting up a <a href="Setting-up-a-development-environment.html">development environment</a> you can start tinkering with the code.</p>
 <h2 id="building-the-addon">Building the addon</h2>
 <p>From the source code's root directory run:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span>
 <span class="co"># or</span>
-<span class="kw">make</span> xpi</code></pre>
+<span class="kw">make</span> xpi</code></pre></div>
 <p>The XPI file will be created at <code>dist/requestpolicy.xpi</code>.</p>
 <h2 id="installing-the-xpi">Installing the XPI</h2>
 <p>You can simply drag-and-drop the file into your web browser (e.g. Firefox).</p>
 <h2 id="running-firefox-and-rp-with-mozrunner">Running Firefox and RP with Mozrunner</h2>
 <p><code>mozrunner</code> is a python package that helps you run Mozilla binaries (firefox, thunderbird, seamonkey, …) in a predefined environment. Every time you run <code>mozrunner</code>, it will create a new temporary profile – it will be deleted afterwards.</p>
 <p>Usage examples:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Run Firefox Nightly</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Run Firefox Nightly</span>
 <span class="co"># -- binary path: .mozilla/software/firefox/nightly/firefox</span>
-<span class="kw">make</span> run</code></pre>
+<span class="kw">make</span> run</code></pre></div>
 <p>This will also automatically create or update the XPI file, if necessary. In this case the „unit testing“ XPI will be created – command: <code>make unit-testing-xpi</code>.</p>
 <h2 id="running-unit-tests">Running unit tests</h2>
 <p>Setting up an environment for unit testing is optional. You probably won't need it if you do just a few changes to the code.</p>
@@ -57,11 +76,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Marionette (and formerly MozMill) is used to test UI functionality, whereas the xpcshell is used for tests which only need access to XPCOM.</p>
 <p>So far there are only few unit tests, so contributions are very welcome. In future any new feature should get a unit test.</p>
 <h4 id="xpshell-tests">xpshell tests</h4>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">./tests/run-xpcshell-tests.sh</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">./tests/run-xpcshell-tests.sh</span></code></pre></div>
 <h4 id="marionette-tests">Marionette tests</h4>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> marionette</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> marionette</code></pre></div>
 <p>Note that while the tests are running you shouldn't use keyboard/mouse at all, otherwise tests might fail erroneously.</p>
 <h4 id="mozmill-tests-obsolete">MozMill tests (obsolete)</h4>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> mozmill</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> mozmill</code></pre></div>
 </body>
 </html>

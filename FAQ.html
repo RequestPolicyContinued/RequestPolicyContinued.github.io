@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <link rel="stylesheet" href="./github-markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
 <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
@@ -39,7 +40,8 @@
 <p><sup>You can also manually alter what information is sent through the HTTP Referer header by going to <code>about:config</code> and tweaking the <code>network.http.referer.XOriginPolicy</code>, <code>network.http.referer.spoofSource</code>, <code>network.http.referer.trimmingPolicy</code> and <code>network.http.sendRefererHeader</code> preferences.</sup></p>
 <hr />
 <h3 id="which-kinds-of-requests-are-blocked">Which kinds of requests are blocked?</h3>
-<p>By default, any request the browser makes from the current site a user is on to a third-party site is blocked. Users can then whitelist specific sites (with various levels of granularity) to allow requests they approve of.<br />Request that are blocked include:</p>
+<p>By default, any request the browser makes from the current site a user is on to a third-party site is blocked. Users can then whitelist specific sites (with various levels of granularity) to allow requests they approve of.<br />
+Request that are blocked include:</p>
 <ul>
 <li><strong>Content of the current page that is from a different site:</strong> Various tags in an HTML page tell the browser that more content is needed to display the current page. Normally, the browser immediately makes requests to third-party sites to obtain this content. The content can include images, JavaScript files, style sheet files, and many others.</li>
 <li><strong>Redirections</strong> from the current site to a different site: Redirects tell your browser to load an entirely different website address than the one you are on or requested. Redirections can be caused by JavaScript, META refresh tags, and on headers.</li>
@@ -65,7 +67,7 @@
 <p><a href="https://github.com/gorhill/uBlock">uBlock</a> or <a href="https://github.com/gorhill/uMatrix">uMatrix</a> offer similar functionality.</p>
 <h4 id="using-ublock-like-requestpolicy">Using uBlock like RequestPolicy</h4>
 <p>If you want to use uBlock in the way RequestPolicy works, you should block anything third-party and then set a <strong><code>noop</code> (gray)</strong> rule on any domain you want to allow. Use <code>noop</code> instead of <code>allow</code> so that uBlock's static rules/lists still apply. Click the padlock to make the rules permanent.</p>
-<p><img src="https://cloud.githubusercontent.com/assets/3950390/11353760/68a6566c-9246-11e5-99b6-030f7e1205c6.png" /></p>
+<p><img src="https://cloud.githubusercontent.com/assets/3950390/11353760/68a6566c-9246-11e5-99b6-030f7e1205c6.png" alt="" /></p>
 <p>See <a href="https://github.com/RequestPolicyContinued/requestpolicy/issues/692#issuecomment-160327720">issue #692</a>.</p>
 <h4 id="requestpolicy-and-noscript">RequestPolicy and NoScript</h4>
 <blockquote>

@@ -6,29 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <style type="text/css">
+div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
   <link rel="stylesheet" href="./github-markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
 <h1 id="setting-up-a-development-environment">Setting up a development environment</h1>
@@ -39,10 +58,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ul>
 <li>Git</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install git</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install git</code></pre></div>
 <hr />
 <p>We use <code>git</code> as our version control system. This is how to get the code:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/RequestPolicyContinued/requestpolicy.git</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/RequestPolicyContinued/requestpolicy.git</code></pre></div>
 <p>The command will create a directory called <code>requestpolicy</code>.</p>
 <h2 id="building-the-addon">Building the addon</h2>
 <p>You will need:</p>
@@ -51,29 +70,29 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="http://www.info-zip.org/Zip.html">Zip</a></li>
 <li><a href="https://github.com/trentm/preprocess"><code>preprocess.py</code></a></li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install make zip preprocess</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install make zip preprocess</code></pre></div>
 <p>To build the XPI run</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span></code></pre></div>
 <h2 id="running-firefox-and-rp-with-mozrunner">Running Firefox and RP with Mozrunner</h2>
 <p>You will need:</p>
 <ul>
 <li><code>virtualenv</code></li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install python-virtualenv</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install python-virtualenv</code></pre></div>
 <ul>
 <li>Firefox Nightly</li>
 </ul>
 <p>Download the file you need from <a href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/">Mozilla's FTP server</a>. Extract the files into <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code>. The binary file named <code>firefox</code> should be directly in that directory.</p>
 <p><strong>Hint:</strong> If you want, you could also install Fx Nightly elsewhere and create a symlink from <code>${rp_root_dir}/.mozilla/software/firefox/nightly/</code> to that directory.</p>
 <p>When you're done:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> run</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> run</code></pre></div>
 <h2 id="running-unit-tests">Running unit tests</h2>
 <p>Setting up an environment for unit testing is optional. You probably won't need it if you do just a few changes to the code.</p>
 <h3 id="xpcshell-tests">xpcshell tests</h3>
 <h4 id="getting-and-building-firefox">Getting and building firefox</h4>
 <p>To be able to run the xpcshell you need to build firefox. Be prepared for a long compilation time – up to one hour or even more. You can find build instructions <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions">here</a>. Note that a <code>.mozconfig</code> file is not necessary. (If you already have your own firefox build, you don't need to rebuild of course.)</p>
 <p>This is what I ran in a chroot environment:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># create a new directory /moz</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># create a new directory /moz</span>
 <span class="kw">sudo</span> mkdir /moz
 <span class="kw">cd</span> /moz
 
@@ -84,9 +103,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 <span class="kw">cd</span> mozilla-central/
 <span class="kw">sudo</span> ./mach bootstrap
-<span class="kw">./mach</span> build</code></pre>
+<span class="kw">./mach</span> build</code></pre></div>
 <p>Run all tests:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">./tests/run-xpcshell-tests.sh</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">./tests/run-xpcshell-tests.sh</span></code></pre></div>
 <h3 id="marionette">Marionette</h3>
 <p>To run Marionette tests you currently need to manually set up a Web Server (port 80), including support for PHP. The web server's root directory has to be <code>test/content/</code>.</p>
 <p>Besides the Web Server, you need to create aliases for the Web Server. To do that, add the following new line to your <code>/etc/hosts</code> file:</p>
@@ -96,9 +115,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ul>
 <li><code>virtualenv</code></li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install python-virtualenv</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install python-virtualenv</code></pre></div>
 <p>Run all marionette tests:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> marionette</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">make</span> marionette</code></pre></div>
 <p>This will automatically download the python packages into a virtualenv directory.</p>
 <hr />
 <h2 id="enable-logging">enable logging</h2>
@@ -109,10 +128,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h3 id="more-in-detail">more in detail</h3>
 <p>To enable logging open the URL <code>about:config</code> in firefox and search for the keys containing <code>requestpolicy</code>. Locate the one called <code>extensions.requestpolicy.log</code>. Double-click this row to change the value to <code>true</code>. Logging should now be enabled immediately, but to see the output, you need to start firefox from the command line. The logging will be done to <code>stderr</code>, not to Firefox's error console.</p>
 <p>If you want to capture the logged information to a file, you can redirect <code>stderr</code> to a file when you start Firefox. For example, the following command will start Firefox in the background and will redirect both <code>stdout</code> and <code>stderr</code> to a file named <code>rp.log</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME <span class="kw">&gt;</span>rp.log <span class="kw">2&gt;&amp;1</span> <span class="kw">&amp;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME <span class="kw">&gt;</span>rp.log <span class="kw">2&gt;&amp;1</span> <span class="kw">&amp;</span></code></pre></div>
 <hr />
 <h2 id="developing-without-rebuilding-the-xpi-obsolete">Developing Without Rebuilding the XPI (obsolete)</h2>
-<p>It's annoying to have to rebuild and reinstall the extension constantly during<br />development. To avoid that, you can create a &quot;proxy&quot; extension by creating a<br />file in your Firefox profile's extensions directory which tells Firefox that<br />it should look for the unpackaged extension files in a directory of your<br />choice.</p>
+<p>It's annoying to have to rebuild and reinstall the extension constantly during<br />
+development. To avoid that, you can create a &quot;proxy&quot; extension by creating a<br />
+file in your Firefox profile's extensions directory which tells Firefox that<br />
+it should look for the unpackaged extension files in a directory of your<br />
+choice.</p>
 <h3 id="quick-instructions">Quick instructions</h3>
 <ol>
 <li>Create a <a href="http://kb.mozillazine.org/Profile_Manager#Creating_a_new_profile">new firefox profile</a>, e.g. called <code>rp-dev</code>.</li>
@@ -120,14 +143,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Figure out the <a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>, go there and run this command: <code>echo &quot;/path/to/requestpolicy/src&quot; &gt; requestpolicy@requestpolicy.com</code> (or do it by hand).</li>
 </ol>
 <h3 id="detailed-instructions">Detailed instructions</h3>
-<p>To install a proxy extension, first create a new Firefox profile through the<br />Firefox profile manager. To open the profile manager:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -profilemanager</code></pre>
-<p>Start Firefox using that profile, either selecting it in the profile manager<br />or using the command:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME</code></pre>
+<p>To install a proxy extension, first create a new Firefox profile through the<br />
+Firefox profile manager. To open the profile manager:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -profilemanager</code></pre></div>
+<p>Start Firefox using that profile, either selecting it in the profile manager<br />
+or using the command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">firefox</span> -no-remote -P PROFILENAME</code></pre></div>
 <p>Now close this Firefox instance.</p>
-<p>After you've created the new profile, figure out the<br /><a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>.<br />On Linux, it will often be <code>~/.mozilla/firefox/*/</code>.<br />I'll call this <code>PROFILE_DIRECTORY</code> from here on out.</p>
-<p>Next, use the following commands to create the proxy extension file for<br />RequestPolicy in your new profile.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Change directory to your new profile&#39;s directory.</span>
+<p>After you've created the new profile, figure out the<br />
+<a href="http://kb.mozillazine.org/Profile_folder_-_Firefox#Navigating_to_the_profile_folder">profile directory</a>.<br />
+On Linux, it will often be <code>~/.mozilla/firefox/*/</code>.<br />
+I'll call this <code>PROFILE_DIRECTORY</code> from here on out.</p>
+<p>Next, use the following commands to create the proxy extension file for<br />
+RequestPolicy in your new profile.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Change directory to your new profile&#39;s directory.</span>
 <span class="kw">cd</span> PROFILE_DIRECTORY
 
 <span class="co"># Create the &#39;extensions&#39; directory and change to that directory.</span>
@@ -136,10 +165,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 <span class="co"># Create a file called &#39;requestpolicy@requestpolicy.com&#39; with a single</span>
 <span class="co"># line in the file which is the path to the &#39;src&#39; directory.</span>
-<span class="kw">echo</span> <span class="st">&quot;/path/to/requestpolicy/src&quot;</span> <span class="kw">&gt;</span> requestpolicy@requestpolicy.com</code></pre>
-<p>Now start Firefox again using that profile. Firefox should now consider the<br />extension installed. To verify this, go to Tools &gt; Addons &gt; Extensions. You<br />should see RequestPolicy listed among the extensions.</p>
+<span class="kw">echo</span> <span class="st">&quot;/path/to/requestpolicy/src&quot;</span> <span class="kw">&gt;</span> requestpolicy@requestpolicy.com</code></pre></div>
+<p>Now start Firefox again using that profile. Firefox should now consider the<br />
+extension installed. To verify this, go to Tools &gt; Addons &gt; Extensions. You<br />
+should see RequestPolicy listed among the extensions.</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
-<p>If RequestPolicy is not installed at this point, you may need to repeat the<br />above steps to create the proxy extension file before trying again. This is<br />because if Firefox sees a problem with your proxy extension file (e.g. it's<br />named incorrectly or the path to the <code>src</code> directory in the file is<br />incorrect), Firefox may delete the file.</p>
-<p>Note that you shouldn't try to install the extension xpi in a profile where<br />you've already created the proxy extension. To use an xpi that you've built,<br />use a new profile.</p>
+<p>If RequestPolicy is not installed at this point, you may need to repeat the<br />
+above steps to create the proxy extension file before trying again. This is<br />
+because if Firefox sees a problem with your proxy extension file (e.g. it's<br />
+named incorrectly or the path to the <code>src</code> directory in the file is<br />
+incorrect), Firefox may delete the file.</p>
+<p>Note that you shouldn't try to install the extension xpi in a profile where<br />
+you've already created the proxy extension. To use an xpi that you've built,<br />
+use a new profile.</p>
 </body>
 </html>
