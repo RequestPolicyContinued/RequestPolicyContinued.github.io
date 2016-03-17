@@ -9,7 +9,7 @@
 - [Can websites detect that you are using RequestPolicy?](#can-websites-detect-that-you-are-using-requestpolicy)
 - [Other browser addons](#other-browser-addons)
 - [The flag icon is red! What is wrong?](#the-flag-icon-is-red-what-is-wrong)
-- [How to deal with ajax.googleapis.com?](#how-to-deal-with-ajaxgoogleapiscom)
+- [How to deal with ajax.googleapis.com?](#how-to-deal-with-ajax.googleapis.com)
 - [How to find relevant information about a bug](#how-to-find-relevant-information-about-a-bug)
 - [How do I change the keyboard shortcut to open the menu?](#how-do-i-change-the-keyboard-shortcut-to-open-the-menu)
 - [What are RequestPolicy's configuration settings on `about:config`?](#what-are-requestpolicys-configuration-settings-on-aboutconfig)
