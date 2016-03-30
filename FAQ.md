@@ -137,7 +137,7 @@ Many sites depend on jQuery served by Google
 Sometimes a bug is not easily reproducible. You need to make the bug is caused by RequestPolicy Continued itself, not by another addon or incorrect configuration setting. Please do the following:
 
  * Create a [new, blank profile in Firefox](https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles), with no addons installed.
- * Install the latest RequestPolicy Continued from https://github.com/RequestPolicyContinued/requestpolicy/releases
+ * Install the latest RequestPolicy Continued from https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/versions/beta
  * Navigate to your test page and try to reproduce the bug.
 
 If the problem still occurs with this setup, it is likely a RequestPolicy bug. If the addon works as expected with a blank Firefox profile, then something in your "regular" Firefox profile is causing this bug (another addon or preference). If so, please try the following:

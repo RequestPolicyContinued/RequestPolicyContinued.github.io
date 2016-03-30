@@ -8,7 +8,7 @@ If you have any questions or general thoughts about the project, please post the
 
 ### Testing, reporting bugs & requesting new features
 
-Always use the [latest release](https://github.com/RequestPolicyContinued/requestpolicy/releases/), or [build the XPI from the most recent source revision](https://github.com/RequestPolicyContinued/requestpolicy#getting-the-source-code)
+Always use the [latest release](https://addons.mozilla.org/en-US/firefox/addon/requestpolicy-continued/versions/beta), or [build the XPI from the most recent source revision](https://github.com/RequestPolicyContinued/requestpolicy#getting-the-source-code)
 
 If you'd like a bug to be fixed or a feature added, [find if it has already been reported](https://github.com/RequestPolicyContinued/requestpolicy/issues). Open a new issue if needed, and add information about the bug/request such as:
 
