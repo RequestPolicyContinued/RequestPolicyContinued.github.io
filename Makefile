@@ -23,8 +23,10 @@ stop-server: .server.$(server_port).PID
 wget-404:
 	@echo "### 404 errors"
 	@wget --no-verbose --spider --recursive --page-requisites \
-	http://127.0.0.1:27283/index.html 2>&1 | \
+	http://127.0.0.1:$(server_port)/index.html 2>&1 | \
 	grep -B1 404
 	@echo
 
 404s: start-server wget-404 stop-server
+
+.PHONY: all build start-server .server.$(server_port).PID stop-server wget-404 404s
