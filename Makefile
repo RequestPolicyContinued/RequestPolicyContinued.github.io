@@ -29,4 +29,4 @@ wget-404:
 
 404s: start-server wget-404 stop-server
 
-.PHONY: all build start-server .server.$(server_port).PID stop-server wget-404 404s
+.PHONY: all build start-server stop-server wget-404 404s
